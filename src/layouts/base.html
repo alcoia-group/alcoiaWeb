@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en-GB" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{doctitle}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{canonical}}">
+
+<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+<link rel="preload" href="/assets/fonts/literata-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/components.css">
+<link rel="stylesheet" href="/css/motion.css">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="alcoia">
+<meta property="og:title" content="{{doctitle}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:image" content="{{origin}}/assets/img/og.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{doctitle}}">
+<meta name="twitter:description" content="{{description}}">
+<meta name="twitter:image" content="{{origin}}/assets/img/og.svg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "alcoia",
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "Chrome",
+  "description": "alcoia turns any page you have to read into something you can prove you understood. It watches reading behaviour in the browser, asks a question when something looks off, and never sends video anywhere.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+  "url": "{{origin}}"
+}
+</script>
+{{head}}
+</head>
+<body class="{{bodyclass}}">
+<!-- Synchronous and first: swaps no-js -> js before anything below is
+     parsed, so .reveal elements never flash visible-then-hidden. Blocking
+     is deliberate and cheap (a classList call), not a performance risk. -->
+<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+{{> header }}
+<main id="main">
+{{content}}
+</main>
+{{> footer }}
+<script src="/js/main.js" defer></script>
+{{scripts}}
+</body>
+</html>

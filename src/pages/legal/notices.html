@@ -1,0 +1,84 @@
+<!--alc
+title: Open-source notices
+description: AGPL-3.0 for the client, GPLv3 for WebGazer, SIL OFL 1.1 for both fonts — mirrors NOTICE.md.
+priority: 0.3
+-->
+
+<section class="section-tight">
+  <div class="wrap wrap-narrow stack stack-md reveal-group">
+    <p class="eyebrow reveal">Legal</p>
+    <h1 class="h-section reveal">Open-source notices</h1>
+    <p class="lead reveal">Mirrors <code>NOTICE.md</code> in the repository. If the two ever
+      disagree, the repository is authoritative.</p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap wrap-narrow stack stack-lg">
+
+    <div class="stack stack-sm">
+      <h2 class="h-sub">Scope of the AGPL-3.0 grant</h2>
+      <p><code>LICENSE</code> (AGPL-3.0) covers the alcoia browser extension client — everything
+        under <code>alcoia/</code> except <code>alcoia/server/</code> and
+        <code>alcoia/src/libs/</code> — plus the training material under
+        <code>tldr classifier/</code>.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Path</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><code>alcoia/server/</code></td><td>Not covered by this grant. Proprietary; a separate program.</td></tr>
+            <tr><td><code>alcoia/src/libs/</code></td><td>Third-party code under its own licence — see below.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="stack stack-sm">
+      <h2 class="h-sub">Bundled third-party code</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Component</th><th>Licence</th><th>Copyright</th></tr></thead>
+          <tbody>
+            <tr><td>WebGazer (<code>webgazer.min.js</code>)</td><td>GPLv3</td><td>2016 Brown WebGazer Team</td></tr>
+            <tr><td>pdf.js</td><td>Apache-2.0</td><td>2023 Mozilla Foundation</td></tr>
+            <tr><td>JSZip</td><td>MIT / GPLv3 (dual); bundles pako (MIT)</td><td>Stuk</td></tr>
+            <tr><td>Literata (fonts)</td><td>SIL OFL 1.1</td><td>2017 The Literata Project Authors</td></tr>
+            <tr><td>Plus Jakarta Sans (fonts)</td><td>SIL OFL 1.1</td><td>2020 The Plus Jakarta Sans Project Authors</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Both fonts are latin and latin-ext subsets, roman and italic, variable weight, unmodified
+        from upstream. Their OFL licence files ship alongside the binaries in the repository, and
+        this site self-hosts the same font files under the same terms.</p>
+    </div>
+
+    <div class="stack stack-sm">
+      <h2 class="h-sub">What WebGazer's licence means here</h2>
+      <ol style="padding-left:1.1rem;">
+        <li>While WebGazer ships inside the extension package, the client can never be
+          closed-source. The shipped extension is a combined copyleft work: the complete
+          corresponding source must be offered to anyone who receives it, including via any
+          extension store.</li>
+        <li>AGPL-3.0 is compatible with GPLv3 under §13 of each licence — no change needed to
+          <code>LICENSE</code>.</li>
+        <li>The server is unaffected: it's a separate program in a separate process,
+          communicating over a network API.</li>
+        <li>AGPL's network clause does almost nothing here — the extension runs on your machine
+          and you already have the code; nobody deploys a browser extension as a network service.
+          It should not be cited as a deterrent in marketing or documentation.</li>
+      </ol>
+      <p class="caption">WebGazer's official maintenance ended 24 February 2026. It still works;
+        updates are not guaranteed. An exit path toward a permissively-licensed alternative is
+        logged on the <a href="/roadmap">roadmap</a>, not scheduled.</p>
+    </div>
+
+    <div class="stack stack-sm">
+      <h2 class="h-sub">Full text</h2>
+      <p>The complete, current notice — including anything updated since this page was last
+        synced — lives in the repository:
+        <a href="{{github-url}}/blob/main/NOTICE.md" rel="noopener">{{github-repo-label}}/blob/main/NOTICE.md</a>.
+        The AGPL-3.0 licence text itself: <a href="{{github-url}}/blob/main/LICENSE" rel="noopener">{{github-repo-label}}/blob/main/LICENSE</a>.</p>
+    </div>
+
+  </div>
+</section>

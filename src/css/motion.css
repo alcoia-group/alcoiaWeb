@@ -1,0 +1,92 @@
+/* ── alcoia — motion ───────────────────────────────────────────────────
+ * Choreography, not decoration. innovecs.com's pacing, paper's skin (§7).
+ * Reveals move on transform/opacity only. Content ships visible; JS adds
+ * the pre-reveal state so a no-JS visitor never sees anything hidden.
+ * ────────────────────────────────────────────────────────────────────── */
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-distance));
+  transition: opacity var(--reveal-duration) var(--ease),
+              transform var(--reveal-duration) var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* stagger helper: siblings inside .reveal-group get an incrementing delay
+   assigned by JS via --reveal-delay */
+.reveal-group > * { --reveal-delay: 0ms; }
+
+/* the pinned reading demo (§9.1, §7 signature moment 2) */
+.demo-pin {
+  position: relative;
+}
+.demo-stage {
+  position: sticky;
+  top: 5rem;
+}
+.demo-passage p { transition: opacity 500ms var(--ease), filter 500ms var(--ease); }
+.demo-passage p.is-dimmed { opacity: 0.35; filter: blur(0.2px); }
+.demo-passage p.is-target { opacity: 1; }
+
+.demo-card-slot {
+  margin-top: 1.5rem;
+  min-height: 1px;
+}
+.js .demo-card-slot .qcard {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 600ms var(--ease), transform 600ms var(--ease);
+}
+.js .demo-card-slot .qcard.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* static fallback shown under prefers-reduced-motion / no-JS: demo renders
+   as a plain, fully-visible before/after pair instead of a scroll-driven
+   sequence (§7 "required", §11 keyboard/scroll-trap rule) */
+.demo-fallback { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .demo-pin .demo-stage { position: static; }
+  .demo-passage p.is-dimmed { opacity: 1; filter: none; }
+  .js .demo-card-slot .qcard { opacity: 1; transform: none; }
+}
+.no-js .demo-stage { position: static; }
+.no-js .demo-passage p.is-dimmed { opacity: 1; filter: none; }
+
+/* line-by-line reveal (mask + translate, not letter-by-letter) — §7 moment 3 */
+.line-reveal { overflow: hidden; display: block; }
+.line-reveal > span {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 750ms var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.js .line-reveal.is-visible > span { transform: translateY(0); }
+.line-reveal > span { transform: none; }
+.js .line-reveal > span { transform: translateY(110%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .line-reveal > span { transform: none; transition: none; }
+}
+
+/* footer wordmark arriving (§7 moment 4) */
+.js .footer-wordmark {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 900ms var(--ease), transform 900ms var(--ease);
+}
+.js .footer-wordmark.is-visible { opacity: 1; transform: translateY(0); }
+
+/* hero IPA line: fades in ~200ms after the wordmark settles (§7 moment 1) */
+.js .hero-ipa {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 600ms var(--ease) 200ms, transform 600ms var(--ease) 200ms;
+}
+.js .hero-ipa.is-visible { opacity: 1; transform: translateY(0); }

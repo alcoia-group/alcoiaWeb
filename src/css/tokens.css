@@ -1,0 +1,51 @@
+/* ── alcoia — design tokens ───────────────────────────────────────────────
+ * Warm, matte, flat. Paper and ink, not screen and glass. Brief §6.1.
+ * ────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* paper / ink */
+  --paper: #F9F7F2;
+  --paper-raised: #FFFEFB;
+  --paper-sunk: #F2EFE8;
+  --ink: #333333;
+  --ink-muted: #6B6862;
+  --ink-faint: #9A968E;
+
+  /* lilac — the brand */
+  --lilac: #7E60AE;
+  --lilac-deep: #5F4589;
+  --lilac-wash: #EFE9F6;
+
+  /* sage — the machine speaking. §6.2: scarce, never navigation/footers/grounds. */
+  --sage: #A3B1A3;
+  --sage-deep: #6F8070;
+  --sage-wash: #EAEFEA;
+
+  /* clay — errors, wrong answers, destructive. never red. */
+  --clay: #B4795F;
+  --clay-deep: #93583F;
+  --clay-wash: #F3E9E4;
+
+  --rule: rgba(51, 51, 51, 0.12);
+
+  /* inversion ground, for the (at most twice per page) full-bleed sections */
+  --ink-ground: var(--ink);
+  --paper-on-ink: var(--paper);
+
+  /* type */
+  --alc-serif: 'Literata', Georgia, 'Times New Roman', Times, serif;
+  --alc-ui: 'Plus Jakarta Sans', ui-sans-serif, system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  /* motion — one curve for the whole site (§7) */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --reveal-distance: 22px;
+  --reveal-duration: 800ms;
+  --reveal-stagger: 75ms;
+
+  /* elevation — a hairline, almost never a shadow (§6.4) */
+  --shadow-panel: 0 1px 2px rgba(51, 51, 51, 0.05), 0 8px 24px -12px rgba(51, 51, 51, 0.16);
+
+  --measure: 68ch;
+  --radius: 3px;
+  --radius-lg: 6px;
+}

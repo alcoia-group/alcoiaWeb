@@ -1,0 +1,85 @@
+<!--alc
+title: Docs
+description: Install, permissions explained, self-hosting the backend, and every keyboard shortcut.
+priority: 0.7
+-->
+
+<section class="section-tight">
+  <div class="wrap wrap-narrow stack stack-md reveal-group">
+    <p class="eyebrow reveal">Docs</p>
+    <h1 class="h-section reveal">Install, permissions, self-hosting, shortcuts</h1>
+  </div>
+</section>
+
+<section class="section-tight" id="install">
+  <div class="wrap wrap-narrow stack stack-md">
+    <h2 class="h-sub reveal">Install</h2>
+    <p class="reveal">
+      alcoia isn't on the Chrome Web Store yet. Until it is, install it as an unpacked
+      extension:
+    </p>
+    <pre class="card-sunk reveal" style="overflow-x:auto; font-family: var(--alc-ui); font-size:0.875rem; line-height:1.7;"><code>git clone {{github-url}}.git
+cd alcoia
+npm install          # tooling only; the extension itself ships unbundled</code></pre>
+    <p class="reveal">Then load the <code>alcoia/</code> folder as an unpacked extension at
+      <code>chrome://extensions</code> with Developer mode on. This page will switch to a direct
+      Chrome Web Store link once the listing is live.</p>
+  </div>
+</section>
+
+<section class="section-tight" id="permissions">
+  <div class="wrap wrap-narrow stack stack-md">
+    <h2 class="h-sub reveal">Permissions, and why each one is requested</h2>
+    <div class="table-wrap reveal">
+      <table>
+        <thead><tr><th>Permission</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td><code>&lt;all_urls&gt;</code> host access</td><td>Reading detection has to work on arbitrary pages you visit.</td></tr>
+          <tr><td><code>file:///*</code></td><td>So PDFs opened from disk can be read. If you ask for a summary of a local file, its contents are sent for that request the same way a web page's would be.</td></tr>
+          <tr><td><code>storage</code></td><td>Settings, baselines, saved sessions and notes — kept locally.</td></tr>
+          <tr><td><code>scripting</code></td><td>Injects the camera-detection script, only relevant on the optional webcam path.</td></tr>
+          <tr><td><code>activeTab</code>, <code>tabs</code></td><td>Popup-to-page messaging and opening extension pages. Reading a tab's URL is why this is disclosed as web-history-adjacent on the Chrome Web Store listing.</td></tr>
+          <tr><td><code>webNavigation</code></td><td>Detects in-page navigation on single-page apps so a reading session doesn't bleed across two different articles.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight" id="self-hosting">
+  <div class="wrap wrap-narrow stack stack-md">
+    <h2 class="h-sub reveal">Self-hosting the backend</h2>
+    <p class="reveal">
+      Question generation, explanations and receipt signing run through a small server, not
+      through the extension directly. Institution plans can run it on their own
+      infrastructure. In brief: it's a Node/Express service in front of an LLM provider,
+      configured with its own API key and a signing secret for receipts. Point the extension's
+      backend-URL setting at your instance once it's running. Full setup steps live in the
+      repository's server documentation — <a href="{{github-url}}" rel="noopener">start at the repo</a>
+      and ask via <a href="/for-educators">the pilot form</a> if you're evaluating this for an
+      institution.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="shortcuts">
+  <div class="wrap wrap-narrow stack stack-md">
+    <h2 class="h-sub reveal">Keyboard shortcuts</h2>
+    <div class="table-wrap reveal">
+      <table>
+        <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr><td><kbd>Alt+S</kbd></td><td>Summarise the paragraph at the centre of the viewport</td></tr>
+          <tr><td><kbd>Alt+I</kbd></td><td>Build a reading receipt</td></tr>
+          <tr><td><kbd>Alt+T</kbd></td><td>Toggle read-aloud (text-to-speech)</td></tr>
+          <tr><td><kbd>Alt+F</kbd></td><td>Toggle the focus ruler</td></tr>
+          <tr><td><kbd>Alt+M</kbd></td><td>Toggle the reading map sidebar</td></tr>
+          <tr><td><kbd>Alt+N</kbd></td><td>Open saved notes</td></tr>
+          <tr><td><kbd>Alt+G</kbd></td><td>Open the session report</td></tr>
+          <tr><td><kbd>Ctrl</kbd>+hover a word</td><td>Look up that word and its sentence</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="caption reveal">All shortcuts are also listed in the Session tab of the extension popup.</p>
+  </div>
+</section>

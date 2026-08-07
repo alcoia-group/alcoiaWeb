@@ -1,0 +1,96 @@
+<!--alc
+title: For educators
+description: A reading receipt students submit as evidence, and an aggregate, anonymous view of which paragraphs a class struggled with. No covert mode, ever.
+priority: 0.85
+-->
+
+<section class="section-tight">
+  <div class="wrap wrap-narrow stack stack-md reveal-group">
+    <p class="eyebrow reveal">For educators</p>
+    <h1 class="h-section reveal">Proof you actually read it.</h1>
+    <p class="lead reveal">
+      Students opt in and submit evidence. This is not something you install on a class to watch
+      it — it's something a student chooses to hand you.
+    </p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap wrap-narrow">
+    <div class="card stack stack-md reveal" style="border: 1px solid var(--clay); background: var(--clay-wash);">
+      <p class="h-sub" style="color: var(--clay-deep);">
+        alcoia does not let you monitor a student without their action. There is no covert mode
+        and there never will be.
+      </p>
+      <hr class="rule" style="border-color: rgba(147,88,63,0.25);">
+      <div class="stack stack-sm">
+        <p><strong>What a receipt proves:</strong> that the file is unaltered since alcoia issued it.</p>
+        <p><strong>What it does not prove:</strong> that the reading happened. The figures inside come
+          from the student's own browser — a modified extension could produce anything. Treat a
+          receipt the way you'd treat any self-reported log: useful context, not forensic proof.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grid grid-2 reveal-group" style="align-items:start;">
+    <div class="card stack stack-md reveal">
+      <h2 class="h-sub">What you see</h2>
+      <ul class="stack stack-sm" style="padding-left:1.1rem;">
+        <li>Which paragraphs the class struggled with — aggregate and anonymous, always</li>
+        <li>Per-student receipts, but only where that student chose to submit one</li>
+        <li>Nothing from a student who hasn't opted in and submitted</li>
+      </ul>
+    </div>
+    <div class="card stack stack-md reveal">
+      <h2 class="h-sub">What it costs</h2>
+      <p>Teams &amp; Classrooms is $5/seat/month, 25-seat minimum, annual only — aggregate class
+        view, assigned readings, receipt export, admin console, SSO, and a DPA. See
+        <a href="/pricing">full pricing</a>, or read what we commit to before you ask a student
+        to hand over anything: <a href="/legal/dpa">the data processing addendum</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: var(--paper-sunk); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
+  <div class="wrap wrap-narrow stack stack-lg">
+    <div class="reveal-group stack stack-sm">
+      <p class="eyebrow reveal">Run a pilot</p>
+      <h2 class="h-section reveal">Tell us about your course</h2>
+      <p class="reveal">A real form, read by a person — not a scheduling link.</p>
+    </div>
+    <!-- TODO: owner to supply a Formspree endpoint (or Cloudflare Worker) before launch. -->
+    <form class="card stack stack-md reveal" action="https://formspree.io/f/TODO" method="POST">
+      <div class="grid grid-2">
+        <div class="field">
+          <label for="ed-name">Name</label>
+          <input id="ed-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="ed-email">Email</label>
+          <input id="ed-email" name="email" type="email" autocomplete="email" required>
+        </div>
+      </div>
+      <div class="grid grid-2">
+        <div class="field">
+          <label for="ed-institution">Institution</label>
+          <input id="ed-institution" name="institution" type="text" required>
+        </div>
+        <div class="field">
+          <label for="ed-size">Course size</label>
+          <input id="ed-size" name="course_size" type="text" placeholder="e.g. 120 students" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="ed-timeline">Timeline</label>
+        <input id="ed-timeline" name="timeline" type="text" placeholder="e.g. spring term, next intake">
+      </div>
+      <div class="field">
+        <label for="ed-notes">Anything else</label>
+        <textarea id="ed-notes" name="notes" rows="3"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Send</button>
+    </form>
+  </div>
+</section>

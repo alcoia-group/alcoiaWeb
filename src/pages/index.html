@@ -1,0 +1,264 @@
+<!--alc
+title: Read it once. Actually keep it.
+description: alcoia notices when you're struggling with a page and asks a question about it — no camera required, nothing but passage text ever leaves your device unless you turn the camera on.
+priority: 1.0
+-->
+
+<section class="hero section">
+  <div class="wrap wrap-narrow stack stack-lg">
+    <div class="reveal-group stack stack-sm">
+      <div class="hero-word reveal">alcoia</div>
+      <p class="ipa hero-ipa">/ælˈkɔɪ.ə/<span class="dot">·</span>al-KOY-uh</p>
+    </div>
+    <div class="reveal-group stack stack-md">
+      <h1 class="h-hero reveal">Read it once. Actually keep it.</h1>
+      <p class="lead reveal">
+        alcoia watches how you move through a page — pace, re-reading, whether you leave the
+        tab — and asks a short question when it looks like something didn't land.
+      </p>
+      <div class="cluster reveal">
+        <a class="btn btn-primary" href="{{chrome-url}}">Add to Chrome — free</a>
+        <a class="btn btn-ghost" href="/for-educators">For universities</a>
+      </div>
+      <p class="caption reveal">
+        Works on any page. No account needed to start. The camera is optional and off by
+        default.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- The pinned reading demo — §7 signature moment 2, "the single most
+     valuable thing on the site." Pure scroll-position math, no scroll
+     hijacking: native scroll throughout, so it never traps keyboard focus
+     or wheel input, and the reduced-motion / no-JS fallback below shows the
+     same content already settled. -->
+<section class="demo-pin" data-demo aria-label="How alcoia responds when you slow down, demonstrated">
+  <div class="wrap wrap-narrow reveal-group stack stack-sm" style="padding-bottom: 2rem;">
+    <p class="eyebrow reveal">Try it — scroll, no install</p>
+    <p class="caption reveal">This is a live demonstration. Nothing here is being sent anywhere.</p>
+  </div>
+  <div class="demo-track" data-demo-track style="min-height: 170vh;">
+    <div class="demo-stage">
+      <div class="wrap wrap-narrow grid grid-split">
+        <div class="demo-passage stack stack-md" style="font-size: 1.0625rem;">
+          <p data-demo-dim>
+            Working memory holds a handful of items at once. When a sentence keeps you waiting
+            for its verb, or a paragraph introduces four new terms in a row, that budget runs
+            out before the meaning does — and you keep scrolling anyway.
+          </p>
+          <p data-demo-target>
+            Reading researchers call the fix <em>retrieval practice</em>: being asked to recall
+            something, rather than being shown it again, is what moves it into memory you can
+            actually use later.
+          </p>
+          <p data-demo-dim>
+            That is the whole mechanism. Not a summary. Not a highlight. A short question,
+            answered in your own words, about the sentence you just read.
+          </p>
+        </div>
+        <div class="demo-card-slot">
+          <div class="qcard" data-demo-card>
+            <div class="qcard__top">
+              <span class="qcard__label">Quick check</span>
+              <span class="qcard__badge">You slowed down here · paragraph 2</span>
+            </div>
+            <p class="qcard__context">…being asked to recall something,</p>
+            <p class="qcard__quote">rather than being shown it again, is what moves it into memory you can actually use later.</p>
+            <p class="qcard__question">{{> icon-return }} What does retrieval practice mean, in this passage?</p>
+            <div class="qcard__choices">
+              <button class="qcard__choice" type="button">Reading a passage more than once</button>
+              <button class="qcard__choice" type="button">Being asked to recall something instead of re-reading it</button>
+              <button class="qcard__choice" type="button">Highlighting the difficult sentence</button>
+            </div>
+            <div class="qcard__stats">
+              <span class="tabular">3 slowdowns</span>
+              <span class="tabular">12m on pace</span>
+              <span class="tabular">1 quick check</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grid grid-2 reveal-group" style="align-items: start;">
+    <div class="stack stack-md">
+      <p class="eyebrow reveal">The default response now</p>
+      <h2 class="h-section reveal">Paste it in, get an answer, retain nothing</h2>
+      <p class="reveal">
+        The page is long, so it goes into a chat window. The chat window gives back three
+        paragraphs. The three paragraphs feel like understanding. Nothing was actually read, and
+        nothing sticks — there was never a moment that required recall.
+      </p>
+    </div>
+    <div class="stack stack-md">
+      <p class="eyebrow reveal">What happens instead</p>
+      <h2 class="h-section reveal">You read it. alcoia checks that it landed</h2>
+      <p class="reveal">
+        The text stays yours to read. alcoia watches pace and re-reading in the browser, and
+        when a passage looks like it slipped past, it asks one short question about that exact
+        sentence — not a topic, not a summary. Answering right ends it. Answering wrong is when
+        an explanation appears.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap stack stack-xl">
+    <div class="wrap-narrow reveal-group stack stack-sm">
+      <p class="eyebrow reveal">How it works</p>
+      <h2 class="h-section reveal">Three honestly labelled stages</h2>
+    </div>
+    <div class="grid grid-3 reveal-group">
+      <div class="card stack stack-sm reveal">
+        <span class="pill">01</span>
+        <h3 class="h-sub">It watches how you read</h3>
+        <p>Pace against the difficulty of the paragraph, against your own usual rate, scrolling
+          back to re-read, selecting or copying, leaving the tab. No camera needed — this is the
+          primary and default path.</p>
+      </div>
+      <div class="card stack stack-sm reveal">
+        <span class="pill">02</span>
+        <h3 class="h-sub">It notices when you slow down</h3>
+        <p>An optional webcam mode, off by default, adds only whether you're at the screen and
+          roughly which region you're looking at. It can corroborate what telemetry already
+          suspects — it can't assert a reading state on its own.</p>
+      </div>
+      <div class="card stack stack-sm reveal">
+        <span class="pill">03</span>
+        <h3 class="h-sub">It asks</h3>
+        <p>A short question about what you just read, with the sentence containing the answer
+          quoted underneath. Wrong, it explains. Right, it gets out of the way — at most one
+          interruption every three minutes, five a session.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="inverse section" aria-labelledby="privacy-heading">
+  <div class="wrap wrap-narrow stack stack-lg reveal-group">
+    <p class="eyebrow reveal">Privacy</p>
+    <h2 class="h-section reveal" id="privacy-heading">What actually leaves your machine</h2>
+    <div class="grid grid-2 reveal">
+      <ul class="stack stack-md" style="list-style:none; padding:0;">
+        <li>✓ The camera is off by default, and only starts when you turn it on.</li>
+        <li>✓ No video, image or webcam frame ever leaves your device.</li>
+        <li>✓ No raw gaze coordinates are stored or transmitted — aggregates only.</li>
+        <li>✓ Reading detection works with no camera and no permission prompt.</li>
+      </ul>
+      <ul class="stack stack-md" style="list-style:none; padding:0;">
+        <li><strong>Passage text is sent to a server</strong> to generate questions and
+          explanations. That's the one thing that leaves your machine — said here at the same
+          size as everything above it, not in a footnote.</li>
+        <li>There is no covert mode, and there will never be one.</li>
+      </ul>
+    </div>
+    <p class="reveal">
+      The client that does this is open source under AGPL-3.0, and the file that touches the
+      camera is linked directly:
+      <a href="{{github-url}}/blob/main/alcoia/src/content/webgazer-bootstrap.js" rel="noopener">webgazer-bootstrap.js</a>.
+    </p>
+    <a class="btn btn-inverse reveal" href="/privacy">Read the full privacy explainer</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap stack stack-xl">
+    <div class="wrap-narrow reveal-group stack stack-sm">
+      <p class="eyebrow reveal">Who it's for</p>
+      <h2 class="h-section reveal">Built around one loop, used for different reasons</h2>
+    </div>
+    <div class="grid grid-3 reveal-group">
+      <a class="card stack stack-sm reveal" href="/for-students" style="text-decoration:none; color:inherit;">
+        <h3 class="h-sub">Students</h3>
+        <p>Coursework, papers, dense assigned reading — a way to actually keep what you read
+          instead of skimming it once and forgetting it by the exam.</p>
+        <span class="ui-label" style="color:var(--lilac-deep);">For students →</span>
+      </a>
+      <a class="card stack stack-sm reveal" href="/for-educators" style="text-decoration:none; color:inherit;">
+        <h3 class="h-sub">Educators</h3>
+        <p>A receipt students can submit as evidence a reading happened, and an aggregate,
+          anonymous view of which paragraphs a class struggled with.</p>
+        <span class="ui-label" style="color:var(--lilac-deep);">For educators →</span>
+      </a>
+      <a class="card stack stack-sm reveal" href="/for-language-learners" style="text-decoration:none; color:inherit;">
+        <h3 class="h-sub">Language learners</h3>
+        <p>Vocabulary you lingered on, collected automatically and reviewed on a spacing
+          schedule, plus a reading-rate baseline in your second language.</p>
+        <span class="ui-label" style="color:var(--lilac-deep);">For language learners →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap wrap-narrow stack stack-md reveal-group">
+    <p class="eyebrow reveal">Research</p>
+    <h2 class="h-section reveal">Built on other people's evidence, not ours yet</h2>
+    <p class="lead reveal">
+      Built on reading research from Rayner (1998), Just &amp; Carpenter (1980) and D'Mello et
+      al. (2016), whose randomised trial found that interrupting a drifting reader with
+      just-in-time questions recovered comprehension losses (d&nbsp;=&nbsp;0.47).
+    </p>
+    <p class="reveal">
+      No accuracy figure for alcoia itself is published anywhere on this site. There has been no
+      real-participant evaluation yet, and a number with nothing real behind it is worse than no
+      number at all.
+    </p>
+    <a class="btn btn-ghost reveal" href="/research">Read the research page</a>
+  </div>
+</section>
+
+<section class="section-tight" style="background: var(--paper-sunk); border-block: 1px solid var(--rule);">
+  <div class="wrap wrap-narrow stack stack-md reveal-group">
+    <p class="eyebrow reveal">Open source</p>
+    <h2 class="h-section reveal">You can read the code that reads your pages</h2>
+    <p class="reveal">
+      The extension is open source under AGPL-3.0. Anyone can audit exactly what it does with
+      page content and with the camera — including the one file that touches the webcam, linked
+      above. The server that generates questions and explanations is a separate program and is
+      not open source.
+    </p>
+    <a class="gh-link reveal" href="{{github-url}}" rel="noopener">
+      {{> icon-github }}
+      <span>{{github-repo-label}}</span>
+    </a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap stack stack-xl">
+    <div class="wrap-narrow reveal-group stack stack-sm">
+      <p class="eyebrow reveal">Pricing</p>
+      <h2 class="h-section reveal">Free is genuinely useful. Paid is optional.</h2>
+    </div>
+    <div class="grid grid-3 reveal-group">
+      <div class="card stack stack-md reveal">
+        <h3 class="h-sub">Free</h3>
+        <p class="tabular" style="font-size:1.75rem;">$0</p>
+        <p>Difficulty scan, focus ruler, bionic reading, dyslexia mode, TTS, 15 AI assists a
+          month. No account needed to install.</p>
+      </div>
+      <div class="card stack stack-md reveal" style="border-color: var(--lilac-deep);">
+        <span class="pill pill-lilac">Most people start here</span>
+        <h3 class="h-sub">Reader</h3>
+        <p class="tabular" style="font-size:1.75rem;">$4.92<span style="font-size:1rem;">/mo</span></p>
+        <p>Billed annually. Unlimited assists, retrieval questions, vocabulary review, reading
+          receipts, PDF and PPTX, sync, and the optional webcam mode.</p>
+      </div>
+      <div class="card stack stack-md reveal">
+        <h3 class="h-sub">Teams &amp; Classrooms</h3>
+        <p class="tabular" style="font-size:1.75rem;">$5<span style="font-size:1rem;">/seat/mo</span></p>
+        <p>25-seat minimum, annual only. Aggregate class view, assigned readings, receipt
+          export, admin console, SSO, DPA.</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <a class="btn btn-ghost" href="/pricing">See full pricing</a>
+    </div>
+  </div>
+</section>

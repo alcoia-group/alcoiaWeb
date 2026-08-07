@@ -1,0 +1,6 @@
+# TODO: owner to confirm a monitored disclosure address before launch.
+Contact: mailto:security@alcoia.com
+Expires: 2027-08-07T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://alcoia.com/.well-known/security.txt
+Policy: https://alcoia.com/legal/notices

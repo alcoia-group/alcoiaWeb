@@ -1,0 +1,13 @@
+{
+  "name": "alcoia-web",
+  "private": true,
+  "version": "1.0.0",
+  "description": "alcoia marketing site — plain HTML/CSS/JS, built with a tiny includes-only builder (no framework, per WEBSITE-BRIEF.md §14).",
+  "scripts": {
+    "dev": "node build.js --serve",
+    "build": "node build.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

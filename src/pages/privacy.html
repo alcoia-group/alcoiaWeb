@@ -1,0 +1,88 @@
+<!--alc
+title: Privacy, explained
+description: What alcoia sends, what it never sends, and what stays on your device — in plain language, with the one exception stated as plainly as the wins.
+priority: 0.85
+-->
+
+<section class="section-tight">
+  <div class="wrap wrap-narrow stack stack-md reveal-group">
+    <p class="eyebrow reveal">Privacy</p>
+    <h1 class="h-section reveal">What actually happens to your data</h1>
+    <p class="lead reveal">
+      This page is written for a human, not a regulator. The binding version, with the legal
+      detail a lawyer needs, is at <a href="/legal/privacy-policy">/legal/privacy-policy</a>.
+      This one just tries to be accurate and readable at the same time.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grid grid-2 reveal-group" style="align-items:start;">
+    <div class="card stack stack-md reveal">
+      <h2 class="h-sub">True, and we'll say it plainly</h2>
+      <ul class="stack stack-sm" style="padding-left:1.1rem;">
+        <li>Reading detection works with no camera and no permission prompt.</li>
+        <li>The camera is off by default, and only starts when you turn it on.</li>
+        <li>No video, image or webcam frame ever leaves your device — verified by an automated
+          test that inspects every outbound request.</li>
+        <li>No raw gaze coordinates are stored or transmitted. Aggregates only.</li>
+        <li>Reading receipts are built on your machine and shown to you before anything happens
+          with them — never submitted in the background.</li>
+        <li>There is no covert mode, and there will never be one.</li>
+      </ul>
+    </div>
+    <div class="card stack stack-md reveal" style="border-color: var(--clay);">
+      <h2 class="h-sub">What does leave your device</h2>
+      <p>Passage text — the paragraph you're reading, and sometimes the one before it for
+        context — is sent to a server to generate questions and explanations. That's the
+        trade: the questions have to come from somewhere. We're saying it here at the same size
+        as the privacy wins above, not in a footnote, because burying it is the thing that would
+        actually break trust.</p>
+      <p>If you turn the camera on, one more thing changes: the extension loads a face-detection
+        model from a Google-operated host the first time it needs one. That request can disclose
+        your IP address to Google, the same way loading any third-party resource would. It only
+        happens on the camera path, which stays off unless you turn it on.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap wrap-narrow stack stack-md reveal-group">
+    <p class="eyebrow reveal">On your device, never sent anywhere</p>
+    <h2 class="h-sub reveal">A local history you can see, and currently clear by uninstalling</h2>
+    <p class="reveal">
+      alcoia keeps a list of pages you've read on your own device, so it can show you your own
+      session history — page titles, how long you spent, which state you were mostly in. It is
+      never transmitted. <!-- TODO: owner to confirm — if an in-extension "clear history"
+      control has shipped since this was written, replace the sentence below with a pointer to
+      it (see LEGAL-DISCLOSURE-MAP.md Finding 2). --> As shipped, clearing it means uninstalling
+      the extension; we'd rather say that plainly than imply a delete button that isn't there
+      yet.
+    </p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap wrap-narrow stack stack-md reveal-group">
+    <p class="eyebrow reveal">The receipt</p>
+    <h2 class="h-sub reveal">"Unaltered since issued" — not "verified"</h2>
+    <p class="reveal">
+      A signed receipt proves the file hasn't changed since alcoia issued it. It is not proof
+      the reading happened: the figures inside come from your own browser, and a modified
+      extension could produce anything. That caveat travels with the file itself, as a field of
+      the receipt, not just as something we say here.
+    </p>
+  </div>
+</section>
+
+<section class="inverse section-tight">
+  <div class="wrap wrap-narrow stack stack-sm reveal-group">
+    <p class="eyebrow reveal">Verify it yourself</p>
+    <h2 class="h-sub reveal">The client is open source. Read the file that touches the camera</h2>
+    <p class="reveal">
+      Everything above is a description of code you can read, not a promise you have to take on
+      faith: <a href="{{github-url}}/blob/main/alcoia/src/content/webgazer-bootstrap.js" rel="noopener">webgazer-bootstrap.js</a>
+      is the one file with camera access. <a href="/open-source">More on the licence and the rest of the stack →</a>
+    </p>
+  </div>
+</section>

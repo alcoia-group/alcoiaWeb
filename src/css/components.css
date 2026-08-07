@@ -1,0 +1,602 @@
+/* ── alcoia — components ───────────────────────────────────────────────── */
+
+/* ── buttons — flat, no shadow, ever (§6.4) ─────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--alc-ui);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 160ms var(--ease), border-color 160ms var(--ease), color 160ms var(--ease);
+  box-shadow: none;
+}
+
+/* primary — the once-per-page lilac accent (§6.1)
+ * Contrast note: the 2026-08 palette revision deepened --lilac from
+ * #B8A9C9 to #7E60AE, which flips §6.3's rule. Ink-on-#B8A9C9 was the
+ * compliant pairing under the old, lighter lilac; ink-on-#7E60AE measures
+ * ~2.5:1 and fails AA outright. --paper-on-#7E60AE measures ~4.7:1 (AA
+ * pass, normal text) and ~7.3:1 on the --lilac-deep hover state. Paper
+ * text is therefore correct now, not ink. Re-verify if the hex changes again. */
+.btn-primary {
+  background: var(--lilac);
+  color: var(--paper);
+}
+.btn-primary:hover { background: var(--lilac-deep); color: var(--paper); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--rule);
+}
+.btn-ghost:hover { border-color: var(--ink); }
+
+.btn-inverse {
+  background: var(--paper);
+  color: var(--ink);
+}
+.btn-inverse:hover { background: var(--lilac); color: var(--paper); }
+
+.btn-sm { padding: 0.6rem 1.1rem; font-size: 0.8125rem; }
+
+/* ── cards ───────────────────────────────────────────────────────────── */
+
+.card {
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2rem);
+}
+
+.card-sunk {
+  background: var(--paper-sunk);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2rem);
+}
+
+.card-floating {
+  box-shadow: var(--shadow-panel);
+  border-radius: var(--radius-lg);
+}
+
+/* ── badges / pills ──────────────────────────────────────────────────── */
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--alc-ui);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: var(--paper-sunk);
+  color: var(--ink-muted);
+  border: 1px solid var(--rule);
+}
+
+.pill-sage { background: var(--sage-wash); color: var(--sage-deep); border-color: transparent; }
+.pill-lilac { background: var(--lilac-wash); color: var(--lilac-deep); border-color: transparent; }
+.pill-clay { background: var(--clay-wash); color: var(--clay-deep); border-color: transparent; }
+
+/* ── state vocabulary tags (§2.3) ───────────────────────────────────── */
+
+.state-tag {
+  font-family: var(--alc-ui);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  background: var(--paper-raised);
+  white-space: nowrap;
+}
+
+/* ── the question card mockup (§13) ─────────────────────────────────── */
+
+.qcard {
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-panel);
+  padding: 1.5rem 1.5rem 1.25rem;
+  max-width: 30rem;
+}
+
+.qcard__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.qcard__badge {
+  font-family: var(--alc-ui);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--sage-deep);
+  background: var(--sage-wash);
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius);
+  white-space: nowrap;
+}
+
+.qcard__label {
+  font-family: var(--alc-ui);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.qcard__quote {
+  border-left: 2px solid var(--sage);
+  padding-left: 1rem;
+  font-family: var(--alc-serif);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-block: 0.85rem;
+}
+
+.qcard__context { color: var(--ink-faint); }
+
+.qcard__question {
+  font-family: var(--alc-serif);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  margin-top: 1rem;
+}
+
+.qcard__choices {
+  margin-top: 0.85rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.qcard__choice {
+  text-align: left;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  border-radius: var(--radius);
+  padding: 0.65rem 0.9rem;
+  font-family: var(--alc-serif);
+  font-size: 0.9375rem;
+  cursor: pointer;
+}
+.qcard__choice:hover { border-color: var(--lilac-deep); }
+
+.qcard__explain {
+  margin-top: 1rem;
+  background: var(--sage-wash);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  position: relative;
+}
+
+.qcard__stats {
+  margin-top: 1.1rem;
+  padding-top: 0.85rem;
+  border-top: 1px dotted var(--rule);
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  font-family: var(--alc-ui);
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+}
+
+/* return-mark icon: circular arrow, "come back to this" (§13.2) */
+.icon-return {
+  width: 1rem; height: 1rem;
+  flex: none;
+  stroke: var(--sage-deep);
+  stroke-width: 1.5;
+  fill: none;
+  vertical-align: -2px;
+  margin-right: 0.35rem;
+}
+
+.icon-spark {
+  width: 0.85rem; height: 0.85rem;
+  flex: none;
+  stroke: var(--sage);
+  stroke-width: 1.4;
+  fill: none;
+  vertical-align: -1px;
+  margin-right: 0.35rem;
+  display: inline-block;
+}
+
+/* ── inversion sections (§6.1) — at most twice per page ─────────────── */
+
+.inverse {
+  background: var(--ink);
+  color: var(--paper);
+}
+.inverse .eyebrow, .inverse .caption { color: rgba(249, 247, 242, 0.6); }
+/* Contrast note: base --lilac (#7E60AE) against the --ink ground measures
+   ~2.5:1 — fails both the 4.5:1 text minimum and the 3:1 non-text/UI-boundary
+   minimum (WCAG 1.4.11). It cannot be used as text or a thin stroke directly
+   on --ink. Links stay --paper (underlined for affordance, ~11.8:1); the
+   "one lilac accent" per inverted section (§6.1) has to be a filled shape —
+   a lilac button or .inverse-accent pill — whose own text is checked against
+   its own fill, not against --ink. */
+.inverse a:not(.btn) {
+  color: var(--paper);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-color: rgba(249, 247, 242, 0.45);
+}
+.inverse a:not(.btn):hover { text-decoration-color: var(--paper); }
+.inverse .rule, .inverse hr { border-color: rgba(249, 247, 242, 0.18); }
+
+/* the one permitted lilac accent inside an inverted section: a small
+   filled pill, never bare text or a hairline against --ink directly */
+.inverse-accent {
+  display: inline-flex;
+  align-items: center;
+  background: var(--lilac);
+  color: var(--paper);
+  font-family: var(--alc-ui);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius);
+}
+
+/* focus rings on a dark ground: --lilac-deep (~1.6:1 on --ink) is close to
+   invisible, so inverted sections get a light ring instead */
+.inverse :focus-visible {
+  outline-color: var(--lilac-wash);
+}
+
+/* code/kbd chips keep a light fill regardless of section — without this,
+   the chip's own light background would carry inherited light text from
+   .inverse and disappear */
+.inverse code, .inverse kbd { color: var(--ink); }
+
+/* ── billing toggle (/pricing) — CSS-only, works with JS disabled ──────
+ * Two visually-hidden radios (siblings, in document order before both
+ * .toggle-group and the two .tiers-* grids) drive which price grid shows
+ * via the general sibling combinator. No JS required; §7 mandates the
+ * site stay fully readable and operable with JavaScript off. */
+.toggle-group {
+  display: inline-flex;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 3px;
+  background: var(--paper-raised);
+}
+.toggle-option {
+  font-family: var(--alc-ui);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  color: var(--ink-muted);
+}
+#bill-annual:checked ~ .toggle-group label[for="bill-annual"],
+#bill-monthly:checked ~ .toggle-group label[for="bill-monthly"] {
+  background: var(--lilac);
+  color: var(--paper);
+}
+#bill-annual:focus-visible ~ .toggle-group label[for="bill-annual"],
+#bill-monthly:focus-visible ~ .toggle-group label[for="bill-monthly"] {
+  outline: 2px solid var(--lilac-deep);
+  outline-offset: 2px;
+}
+.tiers-monthly { display: none; }
+#bill-monthly:checked ~ .tiers-annual { display: none; }
+#bill-monthly:checked ~ .tiers-monthly { display: grid; }
+
+/* ── signal-hierarchy diagram (/how-it-works) ───────────────────────── */
+
+.authority-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.authority-grid > * { background: var(--paper-raised); padding: 1.75rem; }
+@media (max-width: 860px) {
+  .authority-grid { grid-template-columns: 1fr; }
+}
+
+/* ── forms ───────────────────────────────────────────────────────────── */
+
+.field { display: grid; gap: 0.4rem; }
+.field label {
+  font-family: var(--alc-ui);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.field input, .field select, .field textarea {
+  font-family: var(--alc-serif);
+  font-size: 1rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 0.75rem 0.9rem;
+  color: var(--ink);
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: var(--lilac-deep);
+}
+.field-hint { font-size: 0.8125rem; color: var(--ink-muted); }
+
+/* ── key caps / code ─────────────────────────────────────────────────── */
+
+kbd {
+  font-family: var(--alc-ui);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  background: var(--paper-sunk);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+}
+
+code {
+  font-family: var(--alc-ui);
+  font-size: 0.875em;
+  background: var(--paper-sunk);
+  border-radius: 3px;
+  padding: 0.1rem 0.4rem;
+}
+
+pre code { background: none; padding: 0; }
+
+/* ── tables ──────────────────────────────────────────────────────────── */
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+th, td { text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-family: var(--alc-ui); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-muted); font-weight: 600; }
+
+/* ── FAQ / disclosure ────────────────────────────────────────────────── */
+
+.faq-item { border-bottom: 1px solid var(--rule); }
+.faq-item summary {
+  cursor: pointer;
+  padding: 1.1rem 0;
+  font-family: var(--alc-serif);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-family: var(--alc-ui);
+  color: var(--ink-muted);
+  flex: none;
+}
+.faq-item[open] summary::after { content: '\2212'; }
+.faq-item p { padding-bottom: 1.1rem; color: var(--ink-muted); }
+
+/* ── TODO markers on legal pages ─────────────────────────────────────── */
+
+.legal-todo {
+  display: inline-block;
+  font-family: var(--alc-ui);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--clay-deep);
+  background: var(--clay-wash);
+  border: 1px solid var(--clay);
+  border-radius: var(--radius);
+  padding: 0.15rem 0.5rem;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+/* ── header ──────────────────────────────────────────────────────────── */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(249, 247, 242, 0.92);
+  backdrop-filter: none; /* no glassmorphism (§6.4) */
+  border-bottom: 1px solid var(--rule);
+}
+
+.site-header__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 0.9rem;
+  gap: 1.5rem;
+  /* .wrap's 78rem max-width is a reading-measure constraint for body copy;
+     a horizontal nav bar doesn't need it and was losing a losing fight for
+     space against it — confirmed by screenshot, not assumed. */
+  max-width: 90rem;
+}
+
+.wordmark {
+  font-family: var(--alc-serif);
+  font-size: 1.375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  color: var(--ink);
+  flex-shrink: 0;
+}
+
+/* min-width:0 is load-bearing: a flex item's default min-width is "auto",
+   which for a nested flex container like this nav means it refuses to
+   shrink below the summed min-content width of every link — silently
+   overflowing the header past the wrap's right edge on ordinary desktop
+   widths instead of letting individual links give up space. Without this,
+   the CTA button gets pushed off-screen the moment the nav has one link
+   too many; caught by an actual screenshot, not just a code read. */
+.main-nav { display: flex; align-items: center; gap: 1.5rem; min-width: 0; }
+/* :not(.btn) is load-bearing: ".main-nav a" (class+tag) outranks ".btn-primary"
+   (class-only) by specificity regardless of source order, so without this
+   exclusion the CTA button's text silently inherits ink-muted grey instead
+   of paper — legible-looking in a code read, illegible against lilac in
+   the actual render (~2:1 contrast, confirmed via computed style, not just
+   eyeballed). */
+.main-nav a:not(.btn) {
+  font-family: var(--alc-ui);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--ink-muted);
+  padding: 0.25rem 0;
+  border-bottom: 1px solid transparent;
+  white-space: nowrap;
+}
+.main-nav .btn { flex-shrink: 0; white-space: nowrap; }
+.main-nav a:not(.btn):hover, .main-nav a:not(.btn)[aria-current="page"] {
+  color: var(--ink);
+  border-color: var(--lilac-deep);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.7rem;
+}
+
+@media (max-width: 860px) {
+  .main-nav {
+    position: fixed;
+    inset: 0 0 0 auto;
+    top: 60px;
+    width: min(20rem, 85vw);
+    height: calc(100vh - 60px);
+    background: var(--paper);
+    border-left: 1px solid var(--rule);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.75rem 1.5rem;
+    gap: 1.25rem;
+    transform: translateX(100%);
+    transition: transform 260ms var(--ease);
+    overflow-y: auto;
+  }
+  .main-nav[data-open="true"] { transform: translateX(0); }
+  .nav-toggle { display: inline-flex; }
+}
+
+/* ── footer ──────────────────────────────────────────────────────────── */
+
+.site-footer { background: var(--paper-sunk); border-top: 1px solid var(--rule); }
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  padding-block: 3.5rem 2.5rem;
+}
+
+.footer-col h4 {
+  font-family: var(--alc-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.9rem;
+}
+
+.footer-col ul { list-style: none; padding: 0; display: grid; gap: 0.55rem; }
+.footer-col a {
+  font-family: var(--alc-ui);
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+.footer-col a:hover { color: var(--ink); }
+
+@media (max-width: 860px) {
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+.footer-meta {
+  border-top: 1px solid var(--rule);
+  padding-block: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--alc-ui);
+  font-size: 0.8125rem;
+  color: var(--ink-muted);
+}
+
+.gh-mark {
+  width: 22px; height: 22px;
+  color: var(--ink-muted);
+  transition: color 160ms var(--ease);
+}
+a:hover .gh-mark, .gh-link:hover .gh-mark { color: var(--ink); }
+.gh-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  color: var(--ink-muted);
+  font-family: var(--alc-ui);
+  font-size: 0.875rem;
+}
+.gh-link:hover { color: var(--ink); }
+
+.footer-wordmark-link { display: block; text-decoration: none; }
+
+/* the footer wordmark — largest type on the site (§5.3) */
+.footer-wordmark {
+  font-family: var(--alc-serif);
+  font-weight: 400;
+  font-size: clamp(4rem, 18vw, 16rem);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  overflow-wrap: break-word;
+}
+
+/* ── IPA / pronunciation line (§5.2) ─────────────────────────────────── */
+
+.ipa {
+  font-family: var(--alc-serif);
+  font-weight: 300;
+  font-size: 1rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.01em;
+}
+.ipa .dot { margin: 0 0.5em; color: var(--ink-faint); }
+
+/* ── skip-to-content already covered in base.css ─────────────────────── */

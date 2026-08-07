@@ -1,0 +1,11 @@
+# build output — Vercel (or `npm run build`) regenerates this
+dist/
+
+# deps (none currently, but reserved)
+node_modules/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
+.vercel

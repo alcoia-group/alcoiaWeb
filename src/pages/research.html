@@ -1,0 +1,89 @@
+<!--alc
+title: Research
+description: The synthetic-dataset limitation, stated up front. Planned validation against WebQAmGaze and OneStop. No accuracy figure for alcoia is published anywhere.
+priority: 0.6
+-->
+
+<section class="section-tight">
+  <div class="wrap wrap-narrow stack stack-md reveal-group">
+    <p class="eyebrow reveal">Research</p>
+    <h1 class="h-section reveal">Methodology, limitations, and what's not measured yet</h1>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap wrap-narrow">
+    <div class="card stack stack-md reveal" style="border-color: var(--clay);">
+      <p class="h-sub" style="color:var(--clay-deep);">The record, corrected up front</p>
+      <p>
+        Earlier drafts of this project reported accuracy figures derived from synthetic test
+        data. Those figures described the data generator, not reading behaviour, and have been
+        withdrawn pending real-participant validation.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap wrap-narrow stack stack-lg">
+    <div class="reveal-group stack stack-sm">
+      <p class="eyebrow reveal">What the classifier was trained on</p>
+      <h2 class="h-sub reveal">Synthetic data — plainly, and why that's a real limitation</h2>
+    </div>
+    <p class="reveal">
+      The classifier that runs on the optional camera path was trained on rows generated from
+      hand-written rules, then duplicated with Gaussian noise and split randomly into train and
+      test sets. That means a row's noisy near-duplicate could sit in the test set while the
+      original sits in training — a form of leakage that inflates any accuracy figure computed
+      from it. No real-participant reading study has been run against this classifier, or
+      against the browser-telemetry detection that runs by default. Until one has, no accuracy
+      number for alcoia belongs on this site or anywhere else.
+    </p>
+    <p class="reveal">
+      That classifier is also not on the critical path for most readers: it only runs when the
+      camera is on, and the camera is off by default. The primary detection path — pace against
+      difficulty and your own baseline, re-reading, tab focus — doesn't depend on it.
+    </p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap wrap-narrow stack stack-md reveal-group">
+    <p class="eyebrow reveal">Planned validation</p>
+    <h2 class="h-sub reveal">Against WebQAmGaze and OneStop</h2>
+    <p class="reveal">
+      Real-participant validation is planned against two published eye-tracking-and-reading
+      datasets — <strong>WebQAmGaze</strong> and <strong>OneStop</strong> — rather than against
+      data alcoia generated itself. Results will be published here, however modest the numbers
+      turn out to be. A small honest figure, published openly, is worth more than a large one
+      nobody can check.
+    </p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap wrap-narrow stack stack-md reveal-group">
+    <p class="eyebrow reveal">Grounded in prior work</p>
+    <h2 class="h-sub reveal">The mechanism isn't new — the packaging is</h2>
+    <p class="reveal">
+      Reading-speed and comprehension research going back to Rayner (1998) and Just &amp;
+      Carpenter (1980) establishes that pace and regressions carry real signal about reading
+      difficulty. D'Mello et al. (2016) ran a randomised trial showing that interrupting a
+      drifting reader with just-in-time questions recovered comprehension losses
+      (d&nbsp;=&nbsp;0.47). alcoia's interruption policy is built directly on that finding, not
+      on an internal metric.
+    </p>
+  </div>
+</section>
+
+<section class="inverse section-tight">
+  <div class="wrap wrap-narrow stack stack-sm reveal-group">
+    <p class="eyebrow reveal">Check it yourself</p>
+    <h2 class="h-sub reveal">Dataset, notebooks and classifier are all in the repository</h2>
+    <p class="reveal">
+      Nothing above is asking to be taken on faith. The synthetic dataset, the training
+      notebooks and the classifier itself are in the repository under
+      <code>tldr classifier/</code>: <a href="{{github-url}}" rel="noopener">{{github-repo-label}}</a>.
+    </p>
+  </div>
+</section>

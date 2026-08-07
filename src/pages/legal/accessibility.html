@@ -1,0 +1,67 @@
+<!--alc
+title: Accessibility statement
+description: Conformance target, known limitations, and how to report an accessibility problem.
+priority: 0.3
+-->
+
+<section class="section-tight">
+  <div class="wrap wrap-narrow stack stack-md reveal-group">
+    <p class="eyebrow reveal">Legal</p>
+    <h1 class="h-section reveal">Accessibility statement</h1>
+    <p class="lead reveal">This product is for people who find reading hard, and it's sold to
+      accessibility buyers. A site that fails its own audit loses those deals — so this is a
+      commitment we're checking ourselves against, not boilerplate.</p>
+  </div>
+</section>
+
+{{> legal-banner }}
+
+<section class="section-tight">
+  <div class="wrap wrap-narrow stack stack-lg">
+
+    <div class="stack stack-sm">
+      <h2 class="h-sub">Conformance target</h2>
+      <p><strong>WCAG 2.2 Level AA</strong>, minimum, across this website. The browser extension
+        follows the same target where the browser extension platform allows it.
+        <span class="legal-todo">TODO: commission a full third-party audit before claiming
+        conformance rather than a target.</span></p>
+    </div>
+
+    <div class="stack stack-sm">
+      <h2 class="h-sub">What's built in</h2>
+      <ul style="padding-left:1.1rem;">
+        <li>Full keyboard operability, with a visible focus ring on every interactive element</li>
+        <li>Semantic landmarks, one <code>&lt;h1&gt;</code> per page, real <code>&lt;button&gt;</code> elements</li>
+        <li><code>prefers-reduced-motion</code> honoured throughout, including a static fallback
+          for the scroll-driven demo on the home page</li>
+        <li>Text resizes to 200% without loss of content or function</li>
+        <li>Meaningful <code>alt</code> text on informative images, <code>alt=""</code> on decorative ones</li>
+        <li>Responsive down to 360px, including the pinned demo sequence</li>
+        <li>The site is fully readable and navigable with JavaScript disabled</li>
+      </ul>
+    </div>
+
+    <div class="stack stack-sm">
+      <h2 class="h-sub">Known limitations <span class="legal-todo">TODO</span></h2>
+      <p><span class="legal-todo">TODO: list any issues found during audit here, dated, with a
+        remediation timeline. An accessibility statement that claims zero known issues without
+        having run a real audit is not credible to the buyers this page is written for.</span></p>
+    </div>
+
+    <div class="stack stack-sm">
+      <h2 class="h-sub">European Accessibility Act</h2>
+      <p>The EAA applies from June 2025 to relevant products and services offered in the EU. This
+        statement, and the conformance work behind it, is maintained with that obligation in
+        mind. <span class="legal-todo">TODO: confirm EAA scope determination with counsel.</span></p>
+    </div>
+
+    <div class="stack stack-sm">
+      <h2 class="h-sub">Feedback</h2>
+      <p>If something on this site doesn't work with the assistive technology you use, tell us:
+        <a href="mailto:accessibility@alcoia.com">accessibility@alcoia.com</a>. We'll acknowledge
+        reports and fix confirmed issues; we treat this list as a debt we pay down, not a
+        placeholder.</p>
+    </div>
+
+  </div>
+</section>

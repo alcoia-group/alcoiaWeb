@@ -1,0 +1,79 @@
+<!--alc
+title: Open source
+description: The client is AGPL-3.0 and public. What that means if you install it, what it means if you fork it, and the third-party licences bundled inside.
+priority: 0.75
+-->
+
+<section class="section-tight">
+  <div class="wrap wrap-narrow stack stack-md reveal-group">
+    <p class="eyebrow reveal">Open source</p>
+    <h1 class="h-section reveal">You can read the code that reads your pages</h1>
+    <p class="lead reveal">
+      The browser extension is public and licensed AGPL-3.0. For something that runs on every
+      page you visit, that's the strongest trust signal available — so here's exactly what it
+      means, not just that it's true.
+    </p>
+    <a class="gh-link reveal" href="{{github-url}}" rel="noopener">
+      {{> icon-github }}
+      <span>{{github-repo-label}}</span>
+    </a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grid grid-2 reveal-group" style="align-items:start;">
+    <div class="card stack stack-md reveal">
+      <h2 class="h-sub">If you install it</h2>
+      <p>You're running AGPL-3.0-licensed software plus a GPLv3 dependency (WebGazer, used only
+        on the optional camera path). The combined package is a copyleft work: the complete
+        corresponding source has to be offered to anyone who receives it, and it is — the same
+        repository the Chrome Web Store listing links to.</p>
+    </div>
+    <div class="card stack stack-md reveal">
+      <h2 class="h-sub">If you fork it</h2>
+      <p>You inherit the same obligations. Anything you distribute has to stay under AGPL-3.0
+        (or a compatible licence) and its source has to be available to anyone who receives it.
+        You cannot ship a closed-source version while WebGazer is inside it — that's permanent,
+        not a threshold that goes away at any size or revenue.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap wrap-narrow stack stack-md reveal-group">
+    <p class="eyebrow reveal">What isn't public</p>
+    <h2 class="h-sub reveal">The server is a separate program, and it's proprietary</h2>
+    <p class="reveal">
+      Question generation, explanations and receipt signing run on a backend that is not open
+      source and is not covered by the AGPL-3.0 grant. It's a separate program communicating
+      over a network API — the extension's copyleft obligations don't reach it, and this page
+      won't imply otherwise.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap wrap-narrow stack stack-lg">
+    <div class="reveal-group stack stack-sm">
+      <p class="eyebrow reveal">Third-party components</p>
+      <h2 class="h-section reveal">Bundled, with their own licences alongside the binaries</h2>
+    </div>
+    <div class="table-wrap reveal">
+      <table>
+        <thead><tr><th>Component</th><th>Licence</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>WebGazer</td><td>GPLv3</td><td>Gaze estimation, camera path only. The reason the client can never be closed-source while it ships.</td></tr>
+          <tr><td>pdf.js</td><td>Apache-2.0</td><td>PDF rendering (Mozilla Foundation)</td></tr>
+          <tr><td>JSZip</td><td>MIT / GPLv3 (dual)</td><td>PPTX handling; bundles pako (MIT)</td></tr>
+          <tr><td>Literata</td><td>SIL OFL 1.1</td><td>Reading typeface — the same one this site uses</td></tr>
+          <tr><td>Plus Jakarta Sans</td><td>SIL OFL 1.1</td><td>UI typeface — the same one this site uses</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="caption reveal">
+      Full text mirrors <code>NOTICE.md</code> in the repository:
+      <a href="{{github-url}}/blob/main/NOTICE.md" rel="noopener">{{github-repo-label}}/blob/main/NOTICE.md</a>.
+      Licence details: <a href="/legal/notices">/legal/notices</a>.
+    </p>
+  </div>
+</section>
