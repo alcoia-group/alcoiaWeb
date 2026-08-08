@@ -41,12 +41,12 @@ button { font: inherit; color: inherit; }
 
 h1, h2, h3, h4 { font-family: var(--alc-serif); font-weight: 400; line-height: 1.15; }
 
+/* width-driven, aspect ratio ~2.714:1 (1672x616 wordmark PNG) — targets
+   roughly the scale the old clamp(1.75rem,4vw,2.5rem) text produced */
 .hero-word {
-  font-family: var(--alc-serif);
-  font-weight: 400;
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  letter-spacing: -0.005em;
-  color: var(--ink);
+  display: block;
+  width: clamp(8rem, 18vw, 11rem);
+  height: auto;
 }
 
 .h-hero {
