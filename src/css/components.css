@@ -583,6 +583,7 @@ a:hover .gh-mark, .gh-link:hover .gh-mark { color: var(--ink); }
   line-height: 0.9;
   letter-spacing: -0.03em;
   color: var(--ink);
+  text-align: center;
   padding-top: 1rem;
   padding-bottom: 0.5rem;
   overflow-wrap: break-word;
