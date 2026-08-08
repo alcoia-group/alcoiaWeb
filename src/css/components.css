@@ -175,8 +175,34 @@
   font-family: var(--alc-serif);
   font-size: 0.9375rem;
   cursor: pointer;
+  transition: background-color 160ms var(--ease), border-color 160ms var(--ease);
 }
 .qcard__choice:hover { border-color: var(--lilac-deep); }
+
+/* answered state: right ends it (sage), wrong shows what was right (clay
+   for the miss, sage for the actual answer) — same vocabulary as the rest
+   of the system (§6.2, §13.1), not a generic quiz-app green/red */
+.qcard__choice:disabled { cursor: default; }
+.qcard__choice:disabled:not(.is-correct):not(.is-wrong) { opacity: 0.55; }
+.qcard__choice.is-correct {
+  border-color: var(--sage-deep);
+  background: var(--sage-wash);
+  color: var(--sage-deep);
+  font-weight: 600;
+}
+.qcard__choice.is-wrong {
+  border-color: var(--clay);
+  background: var(--clay-wash);
+  color: var(--clay-deep);
+}
+
+.qcard__feedback {
+  margin-top: 0.85rem;
+  font-family: var(--alc-ui);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--sage-deep);
+}
 
 .qcard__explain {
   margin-top: 1rem;
@@ -186,7 +212,9 @@
   font-size: 0.9375rem;
   line-height: 1.55;
   position: relative;
+  display: none;
 }
+.qcard__explain.is-visible { display: block; }
 
 .qcard__stats {
   margin-top: 1.1rem;
@@ -576,6 +604,21 @@ a:hover .gh-mark, .gh-link:hover .gh-mark { color: var(--ink); }
   font-size: 0.875rem;
 }
 .gh-link:hover { color: var(--ink); }
+
+/* CJ credit mark — raster logo (not currentColor-able like the GH SVG), so
+   hover uses opacity instead of a color transition. Aspect ratio ~1.62:1
+   (998x616), height-matched to the 22px GH glyph beside it. */
+.cj-link {
+  display: inline-flex;
+  align-items: center;
+}
+.cj-mark {
+  height: 22px;
+  width: auto;
+  opacity: 0.75;
+  transition: opacity 160ms var(--ease);
+}
+.cj-link:hover .cj-mark { opacity: 1; }
 
 .footer-wordmark-link { display: block; text-decoration: none; }
 

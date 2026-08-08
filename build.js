@@ -24,13 +24,13 @@ const OUT = path.join(ROOT, 'dist');
 const SITE = {
   origin: 'https://alcoia.com', // TODO: owner to confirm the domain (brief §14)
   name: 'alcoia',
-  // TODO: owner to supply once live — brief §10 requires the real repo URL
-  // and the Chrome Web Store link before ship. Until the extension is
-  // published, "Add to Chrome" points at the install instructions instead
-  // of a dead store link, which is the honest and functional interim state.
+  // TODO: owner to supply once live — brief §10 requires the Chrome Web
+  // Store link before ship. Until the extension is published, "Add to
+  // Chrome" points at the install instructions instead of a dead store
+  // link, which is the honest and functional interim state.
   'chrome-url': '/docs#install',
-  'github-url': 'https://github.com/TODO-owner/alcoia',
-  'github-repo-label': 'github.com/TODO-owner/alcoia',
+  'github-url': 'https://github.com/Cjayy77/alcoia',
+  'github-repo-label': 'github.com/Cjayy77/alcoia',
 };
 
 /* ── template ───────────────────────────────────────────────────────────── */

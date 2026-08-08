@@ -66,10 +66,14 @@ priority: 1.0
             <p class="qcard__context">…being asked to recall something,</p>
             <p class="qcard__quote">rather than being shown it again, is what moves it into memory you can actually use later.</p>
             <p class="qcard__question">{{> icon-return }} What does retrieval practice mean, in this passage?</p>
-            <div class="qcard__choices">
+            <div class="qcard__choices" data-quiz>
               <button class="qcard__choice" type="button">Reading a passage more than once</button>
-              <button class="qcard__choice" type="button">Being asked to recall something instead of re-reading it</button>
+              <button class="qcard__choice" type="button" data-correct>Being asked to recall something instead of re-reading it</button>
               <button class="qcard__choice" type="button">Highlighting the difficult sentence</button>
+            </div>
+            <p class="qcard__feedback" data-quiz-feedback role="status" aria-live="polite"></p>
+            <div class="qcard__explain" data-quiz-explain>
+              {{> icon-spark }}That's the definition given in the passage: retrieval — being made to recall — is what moves something into memory you can use later, not re-reading or highlighting it.
             </div>
             <div class="qcard__stats">
               <span class="tabular">3 slowdowns</span>

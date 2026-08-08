@@ -22,6 +22,38 @@
   var heroIpa = document.querySelector('.hero-ipa');
   if (heroIpa) requestAnimationFrame(function () { heroIpa.classList.add('is-visible'); });
 
+  /* ── quick-check quiz cards (e.g. the home-page reading demo) ────────
+     Mirrors the real product's rule: a right answer just ends it, a wrong
+     one gets an explanation and the correct choice is revealed (§4, §13.1).
+     Generic over any [data-quiz] block, not just the one on the home page. */
+  document.querySelectorAll('[data-quiz]').forEach(function (group) {
+    var choices = group.querySelectorAll('.qcard__choice');
+    var feedback = group.parentElement.querySelector('[data-quiz-feedback]');
+    var explain = group.parentElement.querySelector('[data-quiz-explain]');
+
+    choices.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var correctBtn = group.querySelector('[data-correct]');
+        var pickedCorrect = btn.hasAttribute('data-correct');
+
+        choices.forEach(function (b) { b.disabled = true; });
+        if (pickedCorrect) {
+          btn.classList.add('is-correct');
+        } else {
+          btn.classList.add('is-wrong');
+          if (correctBtn) correctBtn.classList.add('is-correct');
+        }
+
+        if (feedback) {
+          feedback.textContent = pickedCorrect
+            ? 'Right — that ends it.'
+            : 'Not quite — here’s the one that was.';
+        }
+        if (explain && !pickedCorrect) explain.classList.add('is-visible');
+      });
+    });
+  });
+
   /* ── mobile nav toggle ─────────────────────────────────────────────── */
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('main-nav');
