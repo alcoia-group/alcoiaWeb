@@ -1,4 +1,4 @@
-# alcoia — marketing site
+# alcoia — marketing site 
 
 Plain HTML, CSS and a little JavaScript. No framework, no bundler — a ~200-line
 includes-only builder (`build.js`) stitches partials into pages and copies assets. See
