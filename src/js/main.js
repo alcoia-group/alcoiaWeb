@@ -218,19 +218,31 @@
   }
 
   /* ── home page logo reveal on scroll ─────────────────────────────────
-     On the home page, hide the header logo until the hero wordmark
-     scrolls out of view (a visual "uncluttering" when above the fold). */
+     When hero scrolls out, logo animates in left-to-right. When scrolling
+     back, logo animates out right-to-left. */
   var heroWord = document.querySelector('.hero-word');
   var navWordmark = document.querySelector('.site-header .wordmark');
-  if (heroWord && navWordmark) {
+  var siteHeader = document.querySelector('.site-header');
+  if (heroWord && navWordmark && siteHeader) {
     document.body.classList.add('is-home');
     var checkLogoVisibility = function () {
       var heroRect = heroWord.getBoundingClientRect();
       var heroOutOfView = heroRect.bottom < 0;
       if (heroOutOfView) {
-        navWordmark.classList.add('is-visible');
+        if (!navWordmark.classList.contains('is-visible')) {
+          navWordmark.classList.remove('is-hiding');
+          navWordmark.classList.add('is-visible');
+          siteHeader.classList.add('is-visible');
+        }
       } else {
-        navWordmark.classList.remove('is-visible');
+        if (navWordmark.classList.contains('is-visible')) {
+          navWordmark.classList.remove('is-visible');
+          navWordmark.classList.add('is-hiding');
+          siteHeader.classList.remove('is-visible');
+          setTimeout(function () {
+            navWordmark.classList.remove('is-hiding');
+          }, 500);
+        }
       }
     };
     window.addEventListener('scroll', checkLogoVisibility);

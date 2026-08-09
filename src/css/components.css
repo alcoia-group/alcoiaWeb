@@ -486,6 +486,15 @@ th { font-family: var(--alc-ui); font-size: 0.75rem; text-transform: uppercase; 
   background: rgba(249, 247, 242, 0.92);
   backdrop-filter: none; /* no glassmorphism (§6.4) */
   border-bottom: 1px solid var(--rule);
+  transition: border-color 300ms var(--ease);
+}
+
+/* on home page, hide border until hero scrolls out */
+body.is-home .site-header {
+  border-bottom-color: transparent;
+}
+body.is-home .site-header.is-visible {
+  border-bottom-color: var(--rule);
 }
 
 .site-header__row {
@@ -504,13 +513,30 @@ th { font-family: var(--alc-ui); font-size: 0.75rem; text-transform: uppercase; 
   display: inline-flex;
   text-decoration: none;
   flex-shrink: 0;
-  transition: opacity 200ms var(--ease);
 }
 
-/* on home page, logo hidden until hero scrolls out of view */
-body.is-home .wordmark:not(.is-visible) {
-  opacity: 0;
+/* on home page, logo hidden until hero scrolls out, then animates in/out */
+body.is-home .wordmark {
+  clip-path: inset(0 100% 0 0);
   pointer-events: none;
+}
+body.is-home .wordmark.is-visible {
+  animation: logoReveal 0.5s var(--ease) forwards;
+  pointer-events: auto;
+}
+body.is-home .wordmark.is-hiding {
+  animation: logoHide 0.5s var(--ease) forwards;
+  pointer-events: none;
+}
+
+@keyframes logoReveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes logoHide {
+  from { clip-path: inset(0 0 0 0); }
+  to { clip-path: inset(0 100% 0 0); }
 }
 
 /* aspect ratio is the source PNG's (1672x616 = ~2.714:1) — height-driven
