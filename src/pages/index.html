@@ -13,8 +13,7 @@ priority: 1.0
     <div class="reveal-group stack stack-md">
       <h1 class="h-hero reveal">Read it once. Actually keep it.</h1>
       <p class="lead reveal">
-        alcoia watches how you move through a page — pace, re-reading, whether you leave the
-        tab — and asks a short question when it looks like something didn't land.
+        Alcoïa notices when something didn't stick and gives you a chance to retrieve it before you move on.
       </p>
       <div class="cluster reveal">
         <a class="btn btn-primary" href="{{chrome-url}}">Add to Chrome — free</a>
@@ -162,9 +161,7 @@ priority: 1.0
       </ul>
     </div>
     <p class="reveal">
-      The client that does this is open source under AGPL-3.0, and the file that touches the
-      camera is linked directly:
-      <a href="{{github-url}}/blob/main/alcoia/src/content/webgazer-bootstrap.js" rel="noopener">webgazer-bootstrap.js</a>.
+      The client that does this is open source under AGPL-3.0. In v1, there is no camera. This is verifiable in the extension manifest, not a promise requiring trust.
     </p>
     <a class="btn btn-inverse reveal" href="/privacy">Read the full privacy explainer</a>
   </div>
@@ -235,6 +232,20 @@ priority: 1.0
 </section>
 
 <section class="section">
+  <div class="wrap grid grid-2 reveal-group" style="align-items:start;">
+    <div class="stack stack-md">
+      <p class="eyebrow reveal">Versus AI shortcuts</p>
+      <h2 class="h-section reveal">Why not just use ChatGPT?</h2>
+    </div>
+    <div class="stack stack-md">
+      <p class="reveal">Because summaries feel like understanding. You read a passage, paste it into ChatGPT, and get back a perfect summary. You absorbed it passively. You'll forget it in days.</p>
+      <p class="reveal">Alcoïa interrupts at the moment reading is likely to fail and asks you to retrieve what you just read in your own words. That retrieval practice creates actual retention. It's not a faster way to skim. It's a better way to actually learn.</p>
+      <p class="reveal">Reading isn't the same as learning. Alcoïa intervenes at the moment that matters and uses retrieval rather than another summary to make the information stick.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
   <div class="wrap stack stack-xl">
     <div class="wrap-narrow reveal-group stack stack-sm">
       <p class="eyebrow reveal">Pricing</p>
@@ -244,25 +255,53 @@ priority: 1.0
       <div class="card stack stack-md reveal">
         <h3 class="h-sub">Free</h3>
         <p class="tabular" style="font-size:1.75rem;">$0</p>
-        <p>Difficulty scan, focus ruler, bionic reading, dyslexia mode, TTS, 15 AI assists a
-          month. No account needed to install.</p>
+        <p>Difficulty scan, focus ruler, bionic reading, dyslexia mode, TTS, accessibility
+          features, 150 guided checks a month. No account needed.</p>
       </div>
       <div class="card stack stack-md reveal" style="border-color: var(--lilac-deep);">
         <span class="pill pill-lilac">Most people start here</span>
         <h3 class="h-sub">Reader</h3>
-        <p class="tabular" style="font-size:1.75rem;">$4.92<span style="font-size:1rem;">/mo</span></p>
-        <p>Billed annually. Unlimited assists, retrieval questions, vocabulary review, reading
-          receipts, PDF and PPTX, sync, and the optional webcam mode.</p>
+        <p class="tabular" style="font-size:1.75rem;">$59<span style="font-size:1rem;">/year</span></p>
+        <p>300 guided checks a month, retrieval questions, vocabulary review, reading receipts,
+          PDF and PPTX, sync, and optional webcam mode.</p>
       </div>
       <div class="card stack stack-md reveal">
         <h3 class="h-sub">Teams &amp; Classrooms</h3>
-        <p class="tabular" style="font-size:1.75rem;">$5<span style="font-size:1rem;">/seat/mo</span></p>
-        <p>25-seat minimum, annual only. Aggregate class view, assigned readings, receipt
-          export, admin console, SSO, DPA.</p>
+        <p class="tabular" style="font-size:1.75rem;">$4<span style="font-size:1rem;">/seat/mo</span></p>
+        <p>25-seat minimum, annual only. Instructor seat free. Aggregate class view, assigned
+          readings, receipt export, admin console, SSO, DPA.</p>
       </div>
     </div>
     <div class="reveal">
       <a class="btn btn-ghost" href="/pricing">See full pricing</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap wrap-narrow stack stack-md">
+    <h2 class="h-section reveal">Questions</h2>
+    <div class="reveal-group">
+      <details class="faq-item reveal">
+        <summary>Do I need a webcam?</summary>
+        <p>No. Reading detection works with browser telemetry alone. The camera is optional and off by default.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>What's the difference between a summary and a question?</summary>
+        <p>A summary is something you're shown. A question is something you have to answer using the text you just read. That retrieval is what creates real retention.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>When does Alcoïa interrupt?</summary>
+        <p>Only when your reading pattern suggests something didn't stick. If you're reading smoothly at an appropriate pace, Alcoïa stays out of the way.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Does Alcoïa share my data?</summary>
+        <p>No. Everything stays on your device or in your private account. You can delete it anytime. For classrooms, you choose what to share with instructors.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Can I use Alcoïa on mobile?</summary>
+        <p>Currently it's a browser extension. Mobile support is on the roadmap. <a href="/faq">See all questions →</a></p>
+      </details>
     </div>
   </div>
 </section>

@@ -216,4 +216,24 @@
       if (!raf) wheelTarget = window.scrollY;
     });
   }
+
+  /* ── home page logo reveal on scroll ─────────────────────────────────
+     On the home page, hide the header logo until the hero wordmark
+     scrolls out of view (a visual "uncluttering" when above the fold). */
+  var heroWord = document.querySelector('.hero-word');
+  var navWordmark = document.querySelector('.site-header .wordmark');
+  if (heroWord && navWordmark) {
+    document.body.classList.add('is-home');
+    var checkLogoVisibility = function () {
+      var heroRect = heroWord.getBoundingClientRect();
+      var heroOutOfView = heroRect.bottom < 0;
+      if (heroOutOfView) {
+        navWordmark.classList.add('is-visible');
+      } else {
+        navWordmark.classList.remove('is-visible');
+      }
+    };
+    window.addEventListener('scroll', checkLogoVisibility);
+    checkLogoVisibility();
+  }
 })();

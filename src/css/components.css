@@ -15,8 +15,18 @@
   border: 1px solid transparent;
   cursor: pointer;
   text-decoration: none;
-  transition: background-color 160ms var(--ease), border-color 160ms var(--ease), color 160ms var(--ease);
+  transition: background-color 160ms var(--ease), border-color 160ms var(--ease), color 160ms var(--ease), opacity 160ms var(--ease);
   box-shadow: none;
+}
+
+.btn:disabled, .btn.btn-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn:disabled:hover, .btn.btn-disabled:hover {
+  background-color: inherit;
+  border-color: inherit;
+  color: inherit;
 }
 
 /* primary — the once-per-page lilac accent (§6.1)
@@ -329,6 +339,31 @@
   outline: 2px solid var(--lilac-deep);
   outline-offset: 2px;
 }
+/* 3-2 pricing layout: top row 3 cards, bottom row 2 cards centered */
+.tiers-annual, .tiers-monthly {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+.tiers-annual > :nth-child(n+4),
+.tiers-monthly > :nth-child(n+4) {
+  grid-column: auto;
+}
+
+/* Wrap items 4-5 in a centered visual container using grid positioning */
+.tiers-annual {
+  justify-items: center;
+}
+.tiers-annual > :nth-child(-n+3) {
+  justify-self: stretch;
+}
+
+.tiers-monthly {
+  justify-items: center;
+}
+.tiers-monthly > :nth-child(-n+3) {
+  justify-self: stretch;
+}
+
 .tiers-monthly { display: none; }
 #bill-monthly:checked ~ .tiers-annual { display: none; }
 #bill-monthly:checked ~ .tiers-monthly { display: grid; }
@@ -469,6 +504,13 @@ th { font-family: var(--alc-ui); font-size: 0.75rem; text-transform: uppercase; 
   display: inline-flex;
   text-decoration: none;
   flex-shrink: 0;
+  transition: opacity 200ms var(--ease);
+}
+
+/* on home page, logo hidden until hero scrolls out of view */
+body.is-home .wordmark:not(.is-visible) {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* aspect ratio is the source PNG's (1672x616 = ~2.714:1) — height-driven
@@ -540,7 +582,7 @@ th { font-family: var(--alc-ui); font-size: 0.75rem; text-transform: uppercase; 
 
 /* ── footer ──────────────────────────────────────────────────────────── */
 
-.site-footer { background: var(--paper-sunk); border-top: 1px solid var(--rule); }
+.site-footer { background: var(--paper-sunk); border-top: 1px solid var(--rule); padding-bottom: 2.5rem; }
 
 .footer-grid {
   display: grid;

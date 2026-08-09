@@ -29,8 +29,8 @@ const SITE = {
   // Chrome" points at the install instructions instead of a dead store
   // link, which is the honest and functional interim state.
   'chrome-url': '/docs#install',
-  'github-url': 'https://github.com/Cjayy77/alcoia',
-  'github-repo-label': 'github.com/Cjayy77/alcoia',
+  'github-url': 'https://github.com/alcoia-group/alcoia',
+  'github-repo-label': 'github.com/alcoia-group/alcoia',
 };
 
 /* ── template ───────────────────────────────────────────────────────────── */
