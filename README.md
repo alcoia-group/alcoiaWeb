@@ -3,7 +3,7 @@
 Plain HTML, CSS and a little JavaScript. No framework, no bundler — a ~200-line
 includes-only builder (`build.js`) stitches partials into pages and copies assets. See
 `WEBSITE-BRIEF.md` in the source project for the full design/content brief this was built from.
-
+ 
 ## Local development
 
 ```bash
