@@ -344,23 +344,9 @@
   grid-template-columns: repeat(3, 1fr) !important;
 }
 
-.tiers-annual > :nth-child(n+4),
-.tiers-monthly > :nth-child(n+4) {
-  grid-column: auto;
-}
-
-/* Wrap items 4-5 in a centered visual container using grid positioning */
-.tiers-annual {
-  justify-items: center;
-}
-.tiers-annual > :nth-child(-n+3) {
-  justify-self: stretch;
-}
-
-.tiers-monthly {
-  justify-items: center;
-}
-.tiers-monthly > :nth-child(-n+3) {
+/* All 6 tier cards stretch to fill their column width */
+.tiers-annual > *,
+.tiers-monthly > * {
   justify-self: stretch;
 }
 

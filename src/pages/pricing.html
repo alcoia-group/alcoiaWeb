@@ -4,14 +4,14 @@ description: Free is genuinely useful with no camera and no account. Reader is $
 priority: 0.9
 -->
 <!-- Billing-toggle component styles live in css/components.css (search
-     "billing toggle") — build.js front matter is single-line key:value only,
+     "billing toggle"). Build.js front matter is single-line key:value only,
      so a multi-line <style> block here would have been silently truncated. -->
 
 <section class="section-tight">
-  <div class="wrap wrap-narrow stack stack-md reveal-group">
-    <p class="eyebrow reveal">Pricing</p>
-    <h1 class="h-section reveal">One free tier that's actually useful. No urgency mechanics.</h1>
-    <p class="lead reveal">No countdown, no strikethrough anchor price, no "contact us" hiding a
+  <div class="wrap wrap-narrow stack stack-md">
+    <p class="eyebrow">Pricing</p>
+    <h1 class="h-section">One free tier that's actually useful. No urgency mechanics.</h1>
+    <p class="lead">No countdown, no strikethrough anchor price, no "contact us" hiding a
       number. What you see here is what it costs.</p>
   </div>
 </section>
@@ -20,13 +20,13 @@ priority: 0.9
   <div class="wrap">
     <input type="radio" name="billing" id="bill-annual" class="vh" checked>
     <input type="radio" name="billing" id="bill-monthly" class="vh">
-    <div class="toggle-group reveal">
+    <div class="toggle-group">
       <label class="toggle-option" for="bill-annual">Annual</label>
       <label class="toggle-option" for="bill-monthly">Monthly</label>
     </div>
 
-    <div class="grid grid-4 reveal-group tiers-annual" style="margin-top:2rem;">
-      <div class="card stack stack-md reveal">
+    <div class="grid grid-3 tiers-annual" style="margin-top:2rem;">
+      <div class="card stack stack-md">
         <h2 class="h-sub">Free</h2>
         <p class="tabular" style="font-size:2rem;">$0</p>
         <p class="caption">No camera. No account to install.</p>
@@ -36,27 +36,40 @@ priority: 0.9
           <li>Focus ruler, bionic reading, dyslexia mode</li>
           <li>Text-to-speech</li>
           <li>Accessibility features</li>
-          <li>150 guided checks / month</li>
         </ul>
         <a class="btn btn-ghost btn-disabled">Add to Chrome</a>
       </div>
-      <div class="card stack stack-md reveal">
+      <div class="card stack stack-md">
+        <span class="pill">First pilot, free</span>
+        <h2 class="h-sub">Pilot</h2>
+        <p class="tabular" style="font-size:2rem;">$0</p>
+        <p class="caption">Classes under 25 students, one term free.</p>
+        <hr class="rule">
+        <ul class="stack stack-sm" style="padding-left:1.1rem; font-size:0.9375rem;">
+          <li>Everything in Reader</li>
+          <li>Aggregate class view</li>
+          <li>Assigned readings</li>
+          <li>Receipt submission and export</li>
+          <li>Admin console, SSO, DPA</li>
+          <li>Priority support</li>
+        </ul>
+        <a class="btn btn-ghost" href="/for-educators">Run a pilot</a>
+      </div>
+      <div class="card stack stack-md">
         <h2 class="h-sub">Student</h2>
         <p class="tabular" style="font-size:2rem;">$29<span style="font-size:1rem;">/year</span></p>
         <p class="caption">Verify with your .edu email.</p>
         <hr class="rule">
         <ul class="stack stack-sm" style="padding-left:1.1rem; font-size:0.9375rem;">
           <li>Everything in Free</li>
-          <li>300 guided checks / month</li>
           <li>Retrieval questions</li>
           <li>Vocabulary + spaced review</li>
           <li>Session recall, reading receipts</li>
           <li>PDF and PPTX, cross-device sync</li>
-          <li>Optional webcam mode</li>
         </ul>
         <a class="btn btn-ghost btn-disabled">Add to Chrome</a>
       </div>
-      <div class="card stack stack-md reveal" style="border-color:var(--lilac-deep);">
+      <div class="card stack stack-md" style="border-color:var(--lilac-deep);">
         <span class="pill pill-lilac">Most people start here</span>
         <h2 class="h-sub">Reader</h2>
         <p class="tabular" style="font-size:2rem;">$59<span style="font-size:1rem;">/year</span></p>
@@ -64,16 +77,14 @@ priority: 0.9
         <hr class="rule">
         <ul class="stack stack-sm" style="padding-left:1.1rem; font-size:0.9375rem;">
           <li>Everything in Free</li>
-          <li>300 guided checks / month</li>
           <li>Retrieval questions</li>
           <li>Vocabulary + spaced review</li>
           <li>Session recall, reading receipts</li>
           <li>PDF and PPTX, cross-device sync</li>
-          <li>Optional webcam mode</li>
         </ul>
         <a class="btn btn-primary btn-disabled">Add to Chrome</a>
       </div>
-      <div class="card stack stack-md reveal">
+      <div class="card stack stack-md">
         <h2 class="h-sub">Teams &amp; Classrooms</h2>
         <p class="tabular" style="font-size:2rem;">$4<span style="font-size:1rem;">/seat/mo</span></p>
         <p class="caption">25-seat minimum, annual only. Instructor seat free.</p>
@@ -88,7 +99,7 @@ priority: 0.9
         </ul>
         <a class="btn btn-ghost" href="/for-educators">Run a pilot</a>
       </div>
-      <div class="card stack stack-md reveal">
+      <div class="card stack stack-md">
         <h2 class="h-sub">Institution</h2>
         <p class="tabular" style="font-size:1.5rem;">Talk to us</p>
         <p class="caption">Site licence, custom deployment.</p>
@@ -103,7 +114,7 @@ priority: 0.9
       </div>
     </div>
 
-    <div class="grid grid-4 reveal-group tiers-monthly" style="margin-top:2rem;">
+    <div class="grid grid-3 tiers-monthly" style="margin-top:2rem;">
       <div class="card stack stack-md">
         <h2 class="h-sub">Free</h2>
         <p class="tabular" style="font-size:2rem;">$0</p>
@@ -114,9 +125,24 @@ priority: 0.9
           <li>Focus ruler, bionic reading, dyslexia mode</li>
           <li>Text-to-speech</li>
           <li>Accessibility features</li>
-          <li>150 guided checks / month</li>
         </ul>
         <a class="btn btn-ghost btn-disabled">Add to Chrome</a>
+      </div>
+      <div class="card stack stack-md">
+        <span class="pill">First pilot, free</span>
+        <h2 class="h-sub">Pilot</h2>
+        <p class="tabular" style="font-size:2rem;">$0</p>
+        <p class="caption">Classes under 25 students, one term free.</p>
+        <hr class="rule">
+        <ul class="stack stack-sm" style="padding-left:1.1rem; font-size:0.9375rem;">
+          <li>Everything in Reader</li>
+          <li>Aggregate class view</li>
+          <li>Assigned readings</li>
+          <li>Receipt submission and export</li>
+          <li>Admin console, SSO, DPA</li>
+          <li>Priority support</li>
+        </ul>
+        <a class="btn btn-ghost" href="/for-educators">Run a pilot</a>
       </div>
       <div class="card stack stack-md">
         <h2 class="h-sub">Student</h2>
@@ -125,12 +151,10 @@ priority: 0.9
         <hr class="rule">
         <ul class="stack stack-sm" style="padding-left:1.1rem; font-size:0.9375rem;">
           <li>Everything in Free</li>
-          <li>300 guided checks / month</li>
           <li>Retrieval questions</li>
           <li>Vocabulary + spaced review</li>
           <li>Session recall, reading receipts</li>
           <li>PDF and PPTX, cross-device sync</li>
-          <li>Optional webcam mode</li>
         </ul>
         <a class="btn btn-ghost btn-disabled">Add to Chrome</a>
       </div>
@@ -142,12 +166,10 @@ priority: 0.9
         <hr class="rule">
         <ul class="stack stack-sm" style="padding-left:1.1rem; font-size:0.9375rem;">
           <li>Everything in Free</li>
-          <li>300 guided checks / month</li>
           <li>Retrieval questions</li>
           <li>Vocabulary + spaced review</li>
           <li>Session recall, reading receipts</li>
           <li>PDF and PPTX, cross-device sync</li>
-          <li>Optional webcam mode</li>
         </ul>
         <a class="btn btn-primary btn-disabled">Add to Chrome</a>
       </div>
@@ -184,59 +206,55 @@ priority: 0.9
 </section>
 
 <section class="section-tight">
-  <div class="wrap wrap-narrow stack stack-md reveal-group">
-    <p class="eyebrow reveal">Regional pricing</p>
-    <h2 class="h-sub reveal">Built for students where $59 is a lot of money</h2>
+  <div class="wrap wrap-narrow stack stack-md">
+    <p class="eyebrow">Regional pricing</p>
+    <h2 class="h-sub">Built for students where $59 is a lot of money</h2>
     <p class="reveal">
       The primary market for Reader is students, including in countries where $59/year is a real
       sum. A student discount of 40% off Reader is available with an academic email address,
       applied on request, and regional pricing is available for Africa, South Asia and Latin
-      America through the payment processor. This isn't a footnote — it's who the product is
+      America through the payment processor. This isn't a footnote. It's who the product is
       priced for.
     </p>
   </div>
 </section>
 
 <section class="inverse section-tight">
-  <div class="wrap wrap-narrow stack stack-sm reveal-group">
-    <p class="eyebrow reveal">What we never charge for</p>
-    <h2 class="h-sub reveal">Dyslexia mode, the focus ruler, text-to-speech and bionic reading are free forever</h2>
-    <p class="reveal">That's a commitment, not an introductory offer. It costs almost no revenue and it's the
+  <div class="wrap wrap-narrow stack stack-sm">
+    <p class="eyebrow">What we never charge for</p>
+    <h2 class="h-sub">Dyslexia mode, the focus ruler, text-to-speech and bionic reading are free forever</h2>
+    <p>That's a commitment, not an introductory offer. It costs almost no revenue and it's the
       part of the product we're least willing to gate.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="wrap wrap-narrow stack stack-md">
-    <h2 class="h-section reveal">Questions</h2>
-    <div class="reveal-group">
-      <details class="faq-item reveal">
+    <h2 class="h-section">Questions</h2>
+    <div>
+      <details class="faq-item">
         <summary>Do I need a webcam?</summary>
-        <p>No. Reading detection runs on browser telemetry by default and works without one.</p>
+        <p>No. There is no camera in v1. Reading detection works with your reading pattern alone.</p>
       </details>
-      <details class="faq-item reveal">
-        <summary>Is my video uploaded?</summary>
-        <p>No. Video never leaves your device, whether or not the camera is on.</p>
-      </details>
-      <details class="faq-item reveal">
+      <details class="faq-item">
         <summary>Can my school see my data?</summary>
         <p>Only if you submit it. Per-student receipts reach an instructor solely when that
           student chooses to submit one. Aggregate class views are anonymous.</p>
       </details>
-      <details class="faq-item reveal">
+      <details class="faq-item">
         <summary>What happens when I cancel?</summary>
         <p>Paid features stop at the end of the billing period you already paid for; the free
-          tier keeps working. You can export your data at any time — see
+          tier keeps working. You can export your data at any time. See
           <a href="/legal/refunds">the refund policy</a> for the full terms.</p>
       </details>
-      <details class="faq-item reveal">
+      <details class="faq-item">
         <summary>What's your refund policy?</summary>
         <p>Covered in full at <a href="/legal/refunds">/legal/refunds</a>, including EU
           distance-selling withdrawal rights.</p>
       </details>
-      <details class="faq-item reveal">
+      <details class="faq-item">
         <summary>Can I get my data out?</summary>
-        <p>Yes — export is available on request and is part of what cancelling honours. Details
+        <p>Yes. Export is available on request and is part of what cancelling honours. Details
           in <a href="/legal/privacy-policy">the privacy policy</a>.</p>
       </details>
     </div>

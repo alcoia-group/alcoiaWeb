@@ -1,6 +1,6 @@
 <!--alc
 title: Read it once. Actually keep it.
-description: alcoia notices when you're struggling with a page and asks a question about it — no camera required, nothing but passage text ever leaves your device unless you turn the camera on.
+description: alcoia notices when something didn't stick and asks a question about it. No camera required, no account to install.
 priority: 1.0
 -->
 
@@ -16,25 +16,24 @@ priority: 1.0
         Alcoïa notices when something didn't stick and gives you a chance to retrieve it before you move on.
       </p>
       <div class="cluster reveal">
-        <a class="btn btn-primary" href="{{chrome-url}}">Add to Chrome — free</a>
+        <a class="btn btn-primary" href="{{chrome-url}}">Add to Chrome (free)</a>
         <a class="btn btn-ghost" href="/for-educators">For universities</a>
       </div>
       <p class="caption reveal">
-        Works on any page. No account needed to start. The camera is optional and off by
-        default.
+        Works on any page. No account needed to start. No camera required.
       </p>
     </div>
   </div>
 </section>
 
-<!-- The pinned reading demo — §7 signature moment 2, "the single most
+<!-- The pinned reading demo: §7 signature moment 2. "The single most
      valuable thing on the site." Pure scroll-position math, no scroll
      hijacking: native scroll throughout, so it never traps keyboard focus
      or wheel input, and the reduced-motion / no-JS fallback below shows the
      same content already settled. -->
 <section class="demo-pin" data-demo aria-label="How alcoia responds when you slow down, demonstrated">
   <div class="wrap wrap-narrow reveal-group stack stack-sm" style="padding-bottom: 2rem;">
-    <p class="eyebrow reveal">Try it — scroll, no install</p>
+    <p class="eyebrow reveal">Try it. Scroll, no install</p>
     <p class="caption reveal">This is a live demonstration. Nothing here is being sent anywhere.</p>
   </div>
   <div class="demo-track" data-demo-track style="min-height: 170vh;">
@@ -44,7 +43,7 @@ priority: 1.0
           <p data-demo-dim>
             Working memory holds a handful of items at once. When a sentence keeps you waiting
             for its verb, or a paragraph introduces four new terms in a row, that budget runs
-            out before the meaning does — and you keep scrolling anyway.
+            out before the meaning does, and you keep scrolling anyway.
           </p>
           <p data-demo-target>
             Reading researchers call the fix <em>retrieval practice</em>: being asked to recall
@@ -72,7 +71,7 @@ priority: 1.0
             </div>
             <p class="qcard__feedback" data-quiz-feedback role="status" aria-live="polite"></p>
             <div class="qcard__explain" data-quiz-explain>
-              {{> icon-spark }}That's the definition given in the passage: retrieval — being made to recall — is what moves something into memory you can use later, not re-reading or highlighting it.
+              {{> icon-spark }}That's the definition given in the passage: retrieval is being made to recall. That's what moves something into memory you can use later, not re-reading or highlighting it.
             </div>
             <div class="qcard__stats">
               <span class="tabular">3 slowdowns</span>
@@ -94,7 +93,7 @@ priority: 1.0
       <p class="reveal">
         The page is long, so it goes into a chat window. The chat window gives back three
         paragraphs. The three paragraphs feel like understanding. Nothing was actually read, and
-        nothing sticks — there was never a moment that required recall.
+        nothing sticks. There was never a moment that required recall.
       </p>
     </div>
     <div class="stack stack-md">
@@ -103,7 +102,7 @@ priority: 1.0
       <p class="reveal">
         The text stays yours to read. alcoia watches pace and re-reading in the browser, and
         when a passage looks like it slipped past, it asks one short question about that exact
-        sentence — not a topic, not a summary. Answering right ends it. Answering wrong is when
+        sentence, not a topic or summary. Answering right ends it. Answering wrong is when
         an explanation appears.
       </p>
     </div>
@@ -121,21 +120,19 @@ priority: 1.0
         <span class="pill">01</span>
         <h3 class="h-sub">It watches how you read</h3>
         <p>Pace against the difficulty of the paragraph, against your own usual rate, scrolling
-          back to re-read, selecting or copying, leaving the tab. No camera needed — this is the
+          back to re-read, selecting or copying, leaving the tab. No camera needed. This is the
           primary and default path.</p>
       </div>
       <div class="card stack stack-sm reveal">
         <span class="pill">02</span>
         <h3 class="h-sub">It notices when you slow down</h3>
-        <p>An optional webcam mode, off by default, adds only whether you're at the screen and
-          roughly which region you're looking at. It can corroborate what telemetry already
-          suspects — it can't assert a reading state on its own.</p>
+        <p>Against the difficulty of what you're reading, against your own baseline pace, and against re-reading patterns. These signals combine to spot where comprehension is likely to slip.</p>
       </div>
       <div class="card stack stack-sm reveal">
         <span class="pill">03</span>
         <h3 class="h-sub">It asks</h3>
         <p>A short question about what you just read, with the sentence containing the answer
-          quoted underneath. Wrong, it explains. Right, it gets out of the way — at most one
+          quoted underneath. Wrong, it explains. Right, it gets out of the way. At most one
           interruption every three minutes, five a session.</p>
       </div>
     </div>
@@ -150,12 +147,12 @@ priority: 1.0
       <ul class="stack stack-md" style="list-style:none; padding:0;">
         <li>✓ The camera is off by default, and only starts when you turn it on.</li>
         <li>✓ No video, image or webcam frame ever leaves your device.</li>
-        <li>✓ No raw gaze coordinates are stored or transmitted — aggregates only.</li>
+        <li>✓ No raw gaze coordinates are stored or transmitted (aggregates only).</li>
         <li>✓ Reading detection works with no camera and no permission prompt.</li>
       </ul>
       <ul class="stack stack-md" style="list-style:none; padding:0;">
         <li><strong>Passage text is sent to a server</strong> to generate questions and
-          explanations. That's the one thing that leaves your machine — said here at the same
+          explanations. That's the one thing that leaves your machine, said here at the same
           size as everything above it, not in a footnote.</li>
         <li>There is no covert mode, and there will never be one.</li>
       </ul>
@@ -176,7 +173,7 @@ priority: 1.0
     <div class="grid grid-3 reveal-group">
       <a class="card stack stack-sm reveal" href="/for-students" style="text-decoration:none; color:inherit;">
         <h3 class="h-sub">Students</h3>
-        <p>Coursework, papers, dense assigned reading — a way to actually keep what you read
+        <p>Coursework, papers, dense assigned reading. A way to actually keep what you read
           instead of skimming it once and forgetting it by the exam.</p>
         <span class="ui-label" style="color:var(--lilac-deep);">For students →</span>
       </a>
@@ -220,9 +217,12 @@ priority: 1.0
     <h2 class="h-section reveal">You can read the code that reads your pages</h2>
     <p class="reveal">
       The extension is open source under AGPL-3.0. Anyone can audit exactly what it does with
-      page content and with the camera — including the one file that touches the webcam, linked
+      page content and with the camera (including the one file that touches the webcam, linked
       above. The server that generates questions and explanations is a separate program and is
       not open source.
+    </p>
+    <p class="reveal">
+      The server that generates questions and explanations is not open source.
     </p>
     <a class="gh-link reveal" href="{{github-url}}" rel="noopener">
       {{> icon-github }}

@@ -21,7 +21,7 @@ priority: 0.9
       <div class="reveal">
         <span class="pill pill-lilac">Authority 1 · ground truth</span>
         <h2 class="h-sub" style="margin-top:0.9rem;">Reader responses</h2>
-        <p style="margin-top:0.6rem;">Answers to retrieval questions. The only ground truth in the system — an answer outranks
+        <p style="margin-top:0.6rem;">Answers to retrieval questions (the only ground truth in the system). An answer outranks
           anything the sensors say. Right resolves to <span class="state-tag">on pace</span> and stops the system
           pressing; declining a question asserts nothing about comprehension.</p>
       </div>
@@ -35,7 +35,7 @@ priority: 0.9
       <div class="reveal">
         <span class="pill">Authority 3 · optional, coarse</span>
         <h2 class="h-sub" style="margin-top:0.9rem;">Webcam gaze</h2>
-        <p style="margin-top:0.6rem;">Presence and a rough screen region only — several lines of text wide. It can assert that
+        <p style="margin-top:0.6rem;">Presence and a rough screen region only (several lines of text wide). It can assert that
           you've stepped away, or corroborate a state telemetry already suspects. It can never
           assert a reading state on its own.</p>
       </div>
@@ -50,8 +50,8 @@ priority: 0.9
     <div class="wrap-narrow reveal-group stack stack-sm">
       <p class="eyebrow reveal">The state vocabulary</p>
       <h2 class="h-section reveal">Six states. Every one is an observation, not a feeling</h2>
-      <p class="reveal">None of this claims to read what you're thinking. Each state names something measurable —
-        a pace, a pattern of movement, a period without signal — never an internal state like
+      <p class="reveal">None of this claims to read what you're thinking. Each state names something measurable:
+        a pace, a pattern of movement, a period without signal. Never an internal state like
         confusion or boredom, which no browser can see.</p>
     </div>
     <div class="table-wrap reveal">
@@ -64,7 +64,7 @@ priority: 0.9
           <tr><td><span class="state-tag">skimming</span></td><td>Moving faster than the text's difficulty would predict for careful reading.</td></tr>
           <tr><td><span class="state-tag">struggling</span></td><td>Moving markedly slower than baseline, or re-reading the same lines repeatedly.</td></tr>
           <tr><td><span class="state-tag">drifting</span></td><td>Scroll and dwell patterns that don't match active reading of the visible text.</td></tr>
-          <tr><td><span class="state-tag">away</span></td><td>The tab lost focus, or — with the camera on — no one is at the screen.</td></tr>
+          <tr><td><span class="state-tag">away</span></td><td>The tab lost focus, or. with the camera on. no one is at the screen.</td></tr>
           <tr><td><span class="state-tag">unknown</span></td><td>Not enough signal to say anything. Common, normal, and nothing interrupts on it.</td></tr>
         </tbody>
       </table>
@@ -78,7 +78,7 @@ priority: 0.9
     <p>States are inferred from behaviour, and inference is imperfect. Someone can read carefully
       at an unusual pace and get misread as skimming; someone can stare at a page while thinking
       about something else and get read as on pace. That's exactly why the system doesn't act on
-      an inference alone — it asks a question and treats the answer as the only thing that
+      an inference alone. it asks a question and treats the answer as the only thing that
       settles it. When there isn't enough signal to guess responsibly, the honest answer is
       <span class="state-tag">unknown</span>, and the system does nothing with it. That's a
       design choice, not a gap: guessing confidently from thin signal would be worse than saying
@@ -95,12 +95,12 @@ priority: 0.9
     <div class="stack stack-md">
       <p class="reveal">A summary is something you're shown. A question is something you have to answer, using
         the passage you just read rather than the assistant's paraphrase of it. That distinction
-        is the entire mechanism, and it isn't ours — it's retrieval practice, one of the more
+        is the entire mechanism, and it isn't ours. it's retrieval practice, one of the more
         replicated findings in reading research.</p>
       <p class="reveal">D'Mello et al. (2016) ran a randomised trial interrupting drifting readers with
         just-in-time questions and found it recovered comprehension losses (d&nbsp;=&nbsp;0.47).
-        alcoia's interruption policy — one question at most every three minutes, five a session,
-        never twice on the same paragraph, never on <span class="state-tag">unknown</span> — is
+        alcoia's interruption policy. one question at most every three minutes, five a session,
+        never twice on the same paragraph, never on <span class="state-tag">unknown</span>. is
         built around not spending that effect on questions the reader doesn't need.</p>
     </div>
   </div>
@@ -109,6 +109,6 @@ priority: 0.9
 <section class="section-tight" style="border-top: 1px solid var(--rule);">
   <div class="wrap wrap-narrow cluster reveal" style="justify-content: space-between;">
     <p class="caption" style="margin:0;">Curious what the site can't claim, and why: <a href="/research">/research</a></p>
-    <a class="btn btn-primary" href="{{chrome-url}}">Add to Chrome — free</a>
+    <a class="btn btn-primary" href="{{chrome-url}}">Add to Chrome. free</a>
   </div>
 </section>

@@ -36,7 +36,7 @@ npm install          # tooling only; the extension itself ships unbundled</code>
         <tbody>
           <tr><td><code>&lt;all_urls&gt;</code> host access</td><td>Reading detection has to work on arbitrary pages you visit.</td></tr>
           <tr><td><code>file:///*</code></td><td>So PDFs opened from disk can be read. If you ask for a summary of a local file, its contents are sent for that request the same way a web page's would be.</td></tr>
-          <tr><td><code>storage</code></td><td>Settings, baselines, saved sessions and notes — kept locally.</td></tr>
+          <tr><td><code>storage</code></td><td>Settings, baselines, saved sessions and notes. kept locally.</td></tr>
           <tr><td><code>scripting</code></td><td>Injects the camera-detection script, only relevant on the optional webcam path.</td></tr>
           <tr><td><code>activeTab</code>, <code>tabs</code></td><td>Popup-to-page messaging and opening extension pages. Reading a tab's URL is why this is disclosed as web-history-adjacent on the Chrome Web Store listing.</td></tr>
           <tr><td><code>webNavigation</code></td><td>Detects in-page navigation on single-page apps so a reading session doesn't bleed across two different articles.</td></tr>
@@ -55,7 +55,7 @@ npm install          # tooling only; the extension itself ships unbundled</code>
       infrastructure. In brief: it's a Node/Express service in front of an LLM provider,
       configured with its own API key and a signing secret for receipts. Point the extension's
       backend-URL setting at your instance once it's running. Full setup steps live in the
-      repository's server documentation — <a href="{{github-url}}" rel="noopener">start at the repo</a>
+      repository's server documentation. <a href="{{github-url}}" rel="noopener">start at the repo</a>
       and ask via <a href="/for-educators">the pilot form</a> if you're evaluating this for an
       institution.
     </p>
