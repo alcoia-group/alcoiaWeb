@@ -1,96 +1,43 @@
 <!--alc
 title: For educators
-description: A reading receipt students submit as evidence, and an aggregate, anonymous view of which paragraphs a class struggled with. No covert mode, ever.
+description: See where your class got stuck. Aggregate comprehension data that shows which paragraphs slowed the class down.
 priority: 0.85
 -->
 
 <section class="section-tight">
   <div class="wrap wrap-narrow stack stack-md reveal-group">
-    <p class="eyebrow reveal">For educators</p>
-    <h1 class="h-section reveal">Proof you actually read it.</h1>
-    <p class="lead reveal">
-      Students opt in and submit evidence. This is not something you install on a class to watch
-      it. It's something a student chooses to hand you.
-    </p>
-  </div>
-</section>
-
-<section class="section-tight">
-  <div class="wrap wrap-narrow">
-    <div class="card stack stack-md reveal" style="border: 1px solid var(--clay); background: var(--clay-wash);">
-      <p class="h-sub" style="color: var(--clay-deep);">
-        alcoia does not let you monitor a student without their action. There is no covert mode
-        and there never will be.
-      </p>
-      <hr class="rule" style="border-color: rgba(147,88,63,0.25);">
-      <div class="stack stack-sm">
-        <p><strong>What a receipt proves:</strong> that the file is unaltered since alcoia issued it.</p>
-        <p><strong>What it does not prove:</strong> that the reading happened. The figures inside come
-          from the student's own browser. A modified extension could produce anything. Treat a
-          receipt the way you'd treat any self-reported log: useful context, not forensic proof.</p>
-      </div>
-    </div>
+    <h1 class="h-section reveal">See where your class got stuck</h1>
+    <p class="lead reveal">alcoia works on top of the readings you already assign. It shows you which paragraphs slowed the class down, so you can spend class time on the parts that need it and leave the parts that landed.</p>
   </div>
 </section>
 
 <section class="section">
-  <div class="wrap grid grid-2 reveal-group" style="align-items:start;">
-    <div class="card stack stack-md reveal">
-      <h2 class="h-sub">What you see</h2>
-      <ul class="stack stack-sm" style="padding-left:1.1rem;">
-        <li>Which paragraphs the class struggled with (aggregate and anonymous, always)</li>
-        <li>Per-student receipts, but only where that student chose to submit one</li>
-        <li>Nothing from a student who hasn't opted in and submitted</li>
-      </ul>
-    </div>
-    <div class="card stack stack-md reveal">
-      <h2 class="h-sub">What it costs</h2>
-      <p>Teams &amp; Classrooms is $5/seat/month, 25-seat minimum, annual only (aggregate class
-        view, assigned readings, receipt export, admin console, SSO, and a DPA. See
-        <a href="/pricing">full pricing</a>, or read what we commit to before you ask a student
-        to hand over anything: <a href="/legal/dpa">the data processing addendum</a>.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="background: var(--paper-sunk); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
   <div class="wrap wrap-narrow stack stack-lg">
-    <div class="reveal-group stack stack-sm">
-      <p class="eyebrow reveal">Run a pilot</p>
-      <h2 class="h-section reveal">Tell us about your course</h2>
-      <p class="reveal">A real form, read by a person. Not a scheduling link.</p>
+
+    <div class="stack stack-md reveal-group">
+      <h2 class="h-section reveal">What the class view shows you</h2>
+      <p class="lead reveal">When you assign a reading, alcoia watches how the class moves through it and reports back for the group. You see where people re-read, where they slowed, and where they gave up. Not who. The class, together.</p>
+      <p class="lead reveal">A reading you could only guess about becomes something you can act on. If a lot of the class stalled on the same passage, that is where the next session goes, or that is the part of the material worth rewriting. You can also ask the class directly, now that you know which paragraph to ask about. Teach the difficult section differently: spend more time on it, break it into smaller pieces, or bring in different examples. The data tells you exactly where to redirect.</p>
     </div>
-    <!-- TODO: owner to supply a Formspree endpoint (or Cloudflare Worker) before launch. -->
-    <form class="card stack stack-md reveal" action="https://formspree.io/f/TODO" method="POST">
-      <div class="grid grid-2">
-        <div class="field">
-          <label for="ed-name">Name</label>
-          <input id="ed-name" name="name" type="text" autocomplete="name" required>
-        </div>
-        <div class="field">
-          <label for="ed-email">Email</label>
-          <input id="ed-email" name="email" type="email" autocomplete="email" required>
-        </div>
+
+    <div class="stack stack-md reveal-group">
+      <h2 class="h-section reveal">A genuine signal that the reading was done</h2>
+      <p class="lead reveal">You can see, for the group, that a reading was worked through rather than opened and skimmed to the end. The signal comes from how people read: pace, re-reading, where they stopped. It is harder to fake than a completion tick, though it is a signal of engagement, not a claim about any one student.</p>
+    </div>
+
+    <div class="stack stack-md reveal-group">
+      <h2 class="h-section reveal">It fits how you already teach</h2>
+      <p class="lead reveal">alcoia does not replace Canvas, Moodle, or your slides. You assign readings the way you do now. alcoia adds a layer that tells you how the reading landed, which nothing in your current stack reports.</p>
+    </div>
+
+    <div class="stack stack-md reveal-group">
+      <h2 class="h-section reveal">What you can and cannot see</h2>
+      <p class="lead reveal">At launch, everything you see is anonymous and grouped. You never see an individual student's results. When too few students have done a reading, alcoia reports that there is not enough data yet, rather than a figure that could point to one person.</p>
+      <p class="lead reveal">alcoia never sees your students' browsing. Material you assign is uploaded by you, on purpose, and your students' reading of it is aggregated anonymously. What a student reads on their own is never shared, with you or with us.</p>
+      <div style="margin-top:2rem;">
+        <a class="btn btn-primary" href="/for-educators">Run a pilot, free for one term</a>
       </div>
-      <div class="grid grid-2">
-        <div class="field">
-          <label for="ed-institution">Institution</label>
-          <input id="ed-institution" name="institution" type="text" required>
-        </div>
-        <div class="field">
-          <label for="ed-size">Course size</label>
-          <input id="ed-size" name="course_size" type="text" placeholder="e.g. 120 students" required>
-        </div>
-      </div>
-      <div class="field">
-        <label for="ed-timeline">Timeline</label>
-        <input id="ed-timeline" name="timeline" type="text" placeholder="e.g. spring term, next intake">
-      </div>
-      <div class="field">
-        <label for="ed-notes">Anything else</label>
-        <textarea id="ed-notes" name="notes" rows="3"></textarea>
-      </div>
-      <button class="btn btn-primary" type="submit">Send</button>
-    </form>
+    </div>
+
   </div>
 </section>
