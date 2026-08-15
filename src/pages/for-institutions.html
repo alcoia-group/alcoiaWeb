@@ -32,6 +32,22 @@ priority: 0.8
     <div class="stack stack-md reveal-group">
       <h2 class="h-section reveal">Where your material goes</h2>
       <p class="lead reveal">Passage text is sent to a language model to generate questions and explanations, with nothing identifying attached. An institution can supply its own model endpoint, so that content goes only where you decide and never reaches our default provider. For institutions that require it, a self-hosted deployment keeps the whole system inside your own infrastructure. Both are scoped with you during procurement.</p>
+      <div class="dataflow reveal" style="margin-top: 2rem;">
+        <div class="dataflow__node">
+          <div class="dataflow__icon dataflow__icon--browser">◈</div>
+          <div class="dataflow__label">Student's browser</div>
+        </div>
+        <div class="dataflow__arrow"></div>
+        <div class="dataflow__node">
+          <div class="dataflow__icon dataflow__icon--model">∴</div>
+          <div class="dataflow__label">Language model</div>
+        </div>
+        <div class="dataflow__arrow"></div>
+        <div class="dataflow__node">
+          <div class="dataflow__icon dataflow__icon--browser">◈</div>
+          <div class="dataflow__label">Student's browser</div>
+        </div>
+      </div>
     </div>
 
     <div class="stack stack-md reveal-group">
