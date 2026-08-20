@@ -31,6 +31,11 @@ const SITE = {
   'chrome-url': '/docs#install',
   'github-url': 'https://github.com/alcoia-group/alcoia',
   'github-repo-label': 'github.com/alcoia-group/alcoia',
+  // Extension ID for magic-link handoff (src/pages/auth-verify.html)
+  // Set to the actual extension ID when available.
+  // Local dev: find at chrome://extensions/ after loading the extension
+  // Web Store: the published extension's store ID
+  'extension-id': process.env.EXTENSION_ID || 'LOCAL_DEV_EXTENSION_ID',
 };
 
 /* ── template ───────────────────────────────────────────────────────────── */

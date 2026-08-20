@@ -1,0 +1,210 @@
+<!--alc
+title: Verify your sign-in
+description: Verifying your magic link
+priority: 0.5
+route: /auth/verify
+-->
+
+<section class="section-tight">
+  <div class="wrap wrap-narrow stack stack-md">
+    <img src="/assets/img/alcoia-wordmark.png" alt="alcoia" style="width: 120px; margin-bottom: 2rem;">
+
+    <div id="state-verifying" class="verify-state" style="display: none;">
+      <h1 class="h-section">Verifying your sign-in</h1>
+      <p class="lead">Checking your magic link. This should only take a moment.</p>
+      <div class="spinner" style="margin-top: 2rem;"></div>
+    </div>
+
+    <div id="state-success" class="verify-state" style="display: none;">
+      <div style="text-align: center;">
+        <div class="check-mark">✓</div>
+        <h1 class="h-section" style="margin-top: 1rem;">You're signed in</h1>
+        <p class="lead">The verification was successful. You can close this tab and return to the extension.</p>
+        <p class="caption" style="margin-top: 2rem;">Your sign-in link was securely exchanged and is no longer valid.</p>
+      </div>
+    </div>
+
+    <div id="state-expired" class="verify-state" style="display: none;">
+      <div style="text-align: center;">
+        <h1 class="h-section">Link expired or already used</h1>
+        <p class="lead">This sign-in link is no longer valid. It may have expired or been used already.</p>
+        <div style="margin-top: 2rem;">
+          <a class="btn btn-primary" href="/">Request a new sign-in link</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="state-error" class="verify-state" style="display: none;">
+      <div style="text-align: center;">
+        <h1 class="h-section">Something went wrong</h1>
+        <p class="lead" id="error-message">Unable to verify your sign-in. Please try again.</p>
+        <div style="margin-top: 2rem;">
+          <a class="btn btn-primary" href="/">Request a new sign-in link</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="state-no-extension" class="verify-state" style="display: none;">
+      <div style="text-align: center;">
+        <h1 class="h-section">Extension not found</h1>
+        <p class="lead">We couldn't detect the alcoia extension on this browser. Install it to complete your sign-in.</p>
+        <div style="margin-top: 2rem;">
+          <a class="btn btn-primary" href="https://chrome.google.com/webstore/detail/alcoia/...">Install alcoia on Chrome</a>
+        </div>
+        <p class="caption" style="margin-top: 1.5rem;">After installing, you may need to request a new sign-in link.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--rule);
+  border-top-color: var(--lilac);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.check-mark {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--sage-wash);
+  border: 2px solid var(--sage-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--sage-deep);
+  margin: 0 auto;
+  font-weight: 600;
+}
+
+.verify-state {
+  animation: fadeIn 300ms ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+</style>
+
+<script>
+// Configuration: extension ID for handoff (set in build.js SITE.extension-id)
+// For local dev: find at chrome://extensions/ after loading the extension
+// For production: the published Web Store extension ID
+// Can also be overridden via EXTENSION_ID env var at build time
+const EXTENSION_ID = '{{extension-id}}';
+
+// State management - keep handoff code in memory only, never persist
+let handoffCode = null;
+
+function showState(stateName) {
+  document.querySelectorAll('.verify-state').forEach(el => {
+    el.style.display = 'none';
+  });
+  const stateElement = document.getElementById(`state-${stateName}`);
+  if (stateElement) {
+    stateElement.style.display = 'block';
+  }
+}
+
+function getUrlParam(name) {
+  const params = new URLSearchParams(window.location.search);
+  return params.get(name);
+}
+
+async function verify() {
+  showState('verifying');
+
+  const token = getUrlParam('token');
+  const kind = getUrlParam('kind');
+
+  if (!token) {
+    showState('error');
+    document.getElementById('error-message').textContent = 'Invalid verification link. No token found.';
+    return;
+  }
+
+  try {
+    // POST to server's verify endpoint
+    const response = await fetch('/api/auth/magic-link/verify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token }),
+      credentials: 'omit',
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+
+      if (error.error === 'token_expired') {
+        showState('expired');
+        return;
+      }
+      if (error.error === 'token_used') {
+        showState('expired');
+        return;
+      }
+
+      showState('error');
+      document.getElementById('error-message').textContent = 'Verification failed. Please try again.';
+      return;
+    }
+
+    const data = await response.json();
+
+    // Keep handoff code in memory only
+    handoffCode = data.code;
+
+    // Try to send code to extension
+    if (typeof chrome !== 'undefined' && chrome.runtime) {
+      chrome.runtime.sendMessage(
+        EXTENSION_ID,
+        { code: handoffCode },
+        (response) => {
+          if (chrome.runtime.lastError) {
+            // Extension not installed or ID mismatch
+            showState('no-extension');
+            // Clear handoff code since it wasn't delivered
+            handoffCode = null;
+          } else {
+            // Extension received the code
+            showState('success');
+            // Clear handoff code after successful delivery
+            handoffCode = null;
+          }
+        }
+      );
+
+      // Timeout in case extension never responds
+      setTimeout(() => {
+        if (handoffCode) {
+          showState('no-extension');
+          handoffCode = null;
+        }
+      }, 5000);
+    } else {
+      // Chrome runtime not available
+      showState('no-extension');
+      handoffCode = null;
+    }
+  } catch (err) {
+    console.error('Verification error:', err);
+    showState('error');
+    document.getElementById('error-message').textContent = 'Network error. Please check your connection and try again.';
+    handoffCode = null;
+  }
+}
+
+// Start verification on page load
+document.addEventListener('DOMContentLoaded', verify);
+</script>
