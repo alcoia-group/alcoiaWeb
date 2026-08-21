@@ -7,7 +7,7 @@ route: /auth/verify
 
 <section class="section-tight">
   <div class="wrap wrap-narrow stack stack-md">
-    <img src="/src/assets/img/alcoia-wordmark.png" alt="alcoia" style="width: 120px; margin-bottom: 2rem;">
+    <img src="/assets/img/alcoia-wordmark.png" alt="alcoia" style="width: 120px; margin-bottom: 2rem;">
 
     <div id="state-verifying" class="verify-state" style="display: none;">
       <h1 class="h-section">Verifying your sign-in</h1>
@@ -136,7 +136,8 @@ async function verify() {
 
   try {
     // POST to server's verify endpoint
-    const response = await fetch('/api/auth/magic-link/verify', {
+    const apiBaseUrl = '{{api-base-url}}';
+    const response = await fetch(`${apiBaseUrl}/api/auth/magic-link/verify`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token }),

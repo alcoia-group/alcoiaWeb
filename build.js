@@ -36,6 +36,10 @@ const SITE = {
   // Local dev: find at chrome://extensions/ after loading the extension
   // Web Store: the published extension's store ID
   'extension-id': process.env.EXTENSION_ID || 'LOCAL_DEV_EXTENSION_ID',
+  // API base URL for server requests (src/pages/auth-verify.html)
+  // Local dev: http://localhost:3000 (alcoiaServer default port)
+  // Staging/Prod: the actual API origin (e.g. https://api.alcoia.com)
+  'api-base-url': process.env.API_BASE_URL || 'http://localhost:3000',
 };
 
 /* ── template ───────────────────────────────────────────────────────────── */
