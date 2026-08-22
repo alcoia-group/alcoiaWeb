@@ -162,6 +162,17 @@ async function verify() {
     }
 
     const data = await response.json();
+    const consoleUrl = '{{console-url}}';
+
+    // For console kind, redirect to console (it handles session setup server-side)
+    if (kind === 'console') {
+      // Small delay to let user see the success state
+      showState('success');
+      setTimeout(() => {
+        window.location.href = consoleUrl;
+      }, 1000);
+      return;
+    }
 
     // Keep handoff code in memory only
     handoffCode = data.code;

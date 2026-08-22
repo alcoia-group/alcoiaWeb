@@ -1,0 +1,163 @@
+<!--alc
+title: Start a free pilot
+description: Sign in to start your free pilot
+priority: 0.7
+-->
+
+<section class="section-tight">
+  <div class="wrap wrap-narrow stack stack-md">
+    <img src="/assets/img/alcoia-wordmark.png" alt="alcoia" style="width: 120px; margin-bottom: 2rem;">
+
+    <div id="state-form" class="form-state" style="display: block;">
+      <h1 class="h-section">Start your free pilot</h1>
+      <p class="lead">Enter your email to get a magic link. No password needed.</p>
+
+      <form id="pilot-form" style="margin-top: 2rem;">
+        <div style="margin-bottom: 1.5rem;">
+          <label for="email" class="ui-label" style="display: block; margin-bottom: 0.5rem;">Your email</label>
+          <input type="email" id="email" name="email" required
+            style="width: 100%; padding: 0.75rem; border: 1px solid var(--rule); border-radius: 3px; font-size: 1rem; font-family: var(--alc-serif);"
+            placeholder="you@example.com">
+        </div>
+        <button type="submit" class="btn btn-primary">Send magic link</button>
+      </form>
+
+      <p class="caption" style="margin-top: 1.5rem;">We'll send a sign-in link to your inbox. The link expires in 15 minutes.</p>
+    </div>
+
+    <div id="state-sending" class="form-state" style="display: none;">
+      <h1 class="h-section">Sending link...</h1>
+      <div class="spinner" style="margin-top: 2rem;"></div>
+    </div>
+
+    <div id="state-sent" class="form-state" style="display: none;">
+      <div style="text-align: center;">
+        <div class="check-mark">✓</div>
+        <h1 class="h-section" style="margin-top: 1rem;">Check your email</h1>
+        <p class="lead">We've sent a sign-in link to <span id="email-display" style="font-weight: 600;"></span></p>
+        <p class="caption" style="margin-top: 1rem;">Click the link to start your pilot. You'll be signed in to the console.</p>
+        <p class="caption" style="margin-top: 1rem; color: var(--ink-faint);">Link expires in 15 minutes. If you don't see it, check your spam folder.</p>
+      </div>
+    </div>
+
+    <div id="state-error" class="form-state" style="display: none;">
+      <div style="text-align: center;">
+        <h1 class="h-section">Something went wrong</h1>
+        <p class="lead" id="error-message">Unable to send your magic link. Please try again.</p>
+        <div style="margin-top: 2rem;">
+          <button class="btn btn-primary" onclick="resetForm()">Try again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--rule);
+  border-top-color: var(--lilac);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.check-mark {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--sage-wash);
+  border: 2px solid var(--sage-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--sage-deep);
+  margin: 0 auto;
+  font-weight: 600;
+}
+
+.form-state {
+  animation: fadeIn 300ms ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.ui-label {
+  font-family: var(--alc-ui);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--ink-muted);
+}
+</style>
+
+<script>
+const apiBaseUrl = '{{api-base-url}}';
+
+function showState(stateName) {
+  document.querySelectorAll('.form-state').forEach(el => {
+    el.style.display = 'none';
+  });
+  const stateElement = document.getElementById(`state-${stateName}`);
+  if (stateElement) {
+    stateElement.style.display = 'block';
+  }
+}
+
+function resetForm() {
+  document.getElementById('email').value = '';
+  showState('form');
+}
+
+document.getElementById('pilot-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById('email').value.trim();
+
+  if (!email) {
+    showState('error');
+    document.getElementById('error-message').textContent = 'Please enter your email address.';
+    return;
+  }
+
+  showState('sending');
+
+  try {
+    const response = await fetch(`${apiBaseUrl}/api/auth/magic-link`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, kind: 'console' }),
+      credentials: 'omit',
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+      showState('error');
+
+      if (error.error === 'magic_link_rate_limit') {
+        document.getElementById('error-message').textContent = 'Too many requests. Please try again later.';
+      } else {
+        document.getElementById('error-message').textContent = 'Unable to send magic link. Please try again.';
+      }
+      return;
+    }
+
+    // Success - show confirmation
+    document.getElementById('email-display').textContent = email;
+    showState('sent');
+  } catch (err) {
+    console.error('Error sending magic link:', err);
+    showState('error');
+    document.getElementById('error-message').textContent = 'Network error. Please check your connection and try again.';
+  }
+});
+</script>

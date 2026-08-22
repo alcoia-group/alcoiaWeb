@@ -40,6 +40,10 @@ const SITE = {
   // Local dev: http://localhost:3000 (alcoiaServer default port)
   // Staging/Prod: the actual API origin (e.g. https://api.alcoia.com)
   'api-base-url': process.env.API_BASE_URL || 'http://localhost:3000',
+  // Console URL for sign-in redirect (src/pages/auth-verify.html, src/pages/start-pilot.html)
+  // Local dev: http://localhost:8080 (alcoiaConsole dev server port)
+  // Staging/Prod: the actual console origin (e.g. https://console.alcoia.com)
+  'console-url': process.env.CONSOLE_URL || 'http://localhost:8080',
 };
 
 /* ── template ───────────────────────────────────────────────────────────── */
